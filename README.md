@@ -19,10 +19,9 @@ plan(s) below.
 Main Role: Developer
 
 #### Training
-- Training Item 1 ({estimated time})
-- Training Item 2 ({estimated time})
-- Training Item 3 ({estimated time})
-- Training Item 4 ({estimated time})
+- Java Programming (5 weeks)
+- UX (2 weeks)
+- Back-end development (3 weeks)
 
 ### Greathouse, Sam (sdgreath)
 Main Role: Business Analyst
