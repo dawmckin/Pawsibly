@@ -27,19 +27,18 @@ Main Role: Developer
 Main Role: Business Analyst
 
 #### Training
-- market analysis/SWOT (2 weeks)
+- Market analysis/SWOT (2 weeks)
 - Back-end development (3 weeks)
-- client research & outreach (5 weeks)
-- android studio (4 weeks)
+- Client research & outreach (5 weeks)
+- Android studio (4 weeks)
 
 ### Han, Matthew (mjhan)
-Main Role: Developer
+Main Role: Developer & UX Designer
 
 #### Training
-- Training Item 1 ({estimated time})
-- Training Item 2 ({estimated time})
-- Training Item 3 ({estimated time})
-- Training Item 4 ({estimated time})
+- Android studio (4 weeks)
+- Java (4 weeks)
+- UX/UI Design research (2 weeks)
 
 ### Grossman, Quinn (qgrossma)
 Main Role: Developer
