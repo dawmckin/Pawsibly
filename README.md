@@ -44,8 +44,8 @@ Main Role: Developer & UX Designer
 Main Role: Developer
 
 #### Training
-- Training Item 1 ({estimated time})
-- Training Item 2 ({estimated time})
-- Training Item 3 ({estimated time})
-- Training Item 4 ({estimated time})
+- Java Programming (4 weeks)
+- Android App Dev (4 weeks)
+- UX Design (2 weeks)
+
 
