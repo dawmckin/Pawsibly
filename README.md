@@ -7,9 +7,9 @@ This repository is for team 53.
 | ------------- |:-------------:|
 | Team Number | 53 |
 | Team Name | The Boys |
-| Assigned AI | Last, First (Update when assigned) |
+| Assigned AI | Gupta, Animesh |
 | Platform | Android |
-| Description | tinder for pet adoption. |
+| Description | tinder for pet adoption |
 
 ## Team Members
 You can find information on our team, our roles, and our training 
