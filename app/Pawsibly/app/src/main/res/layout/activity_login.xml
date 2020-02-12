@@ -8,7 +8,7 @@
     android:background="@drawable/background">
 
     <ImageView
-        android:src="@drawable/pawsibly_logo_tv"
+        android:src="@drawable/pawsibly_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

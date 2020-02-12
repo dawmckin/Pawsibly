@@ -20,6 +20,7 @@ public class LoginActivity extends AppCompatActivity {
     SignInButton signinbtn;
     GoogleSignInClient mGoogleSignInClient;
     int RC_SIGN_IN = 1;
+    String personEmail, personId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +41,16 @@ public class LoginActivity extends AppCompatActivity {
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
+                .requestId()
                 .build();
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(LoginActivity.this);
+        if (acct != null) {
+            personEmail = acct.getEmail();
+            personId = acct.getId();
+        }
     }
 
     private void signIn() {
@@ -67,11 +75,7 @@ public class LoginActivity extends AppCompatActivity {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
 
-            // Signed in successfully, show authenticated UI.
-            // If user's email is registered in DB then direct them to Home activity
-            // If not, then direct the user to register the rest of their information
-
-            Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
             startActivity(intent);
 
         } catch (ApiException e) {
