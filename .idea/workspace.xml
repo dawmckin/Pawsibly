@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1cf98df9-35ce-4a0d-96f5-eb1beaf45249" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/team-53/app/Pawsibly/app/src/main/java/com/example/pawsibly/LocationActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/team-53" beforeDir="false" afterPath="$PROJECT_DIR$/team-53" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/team-53/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/team-53/README.md" afterDir="false" />
     </list>
@@ -13,8 +14,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DefaultGradleProjectSettings">
-    <option name="testRunner" value="GRADLE" />
-    <option name="delegatedBuild" value="true" />
+    <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -76,8 +76,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="593" />
     <option name="y" value="23" />
-    <option name="width" value="1440" />
+    <option name="width" value="1032" />
     <option name="height" value="834" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -216,10 +217,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="834" extended-state="0" />
+    <frame x="593" y="23" width="1032" height="834" extended-state="0" />
     <layout>
       <window_info id="Captures" order="0" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.32980973" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.462908" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -228,7 +229,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="0" />
       <window_info anchor="bottom" id="TODO" order="1" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="2" visible="true" weight="0.32884097" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="2" visible="true" weight="0.52156335" />
       <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="right" id="Theme Preview" order="1" />
