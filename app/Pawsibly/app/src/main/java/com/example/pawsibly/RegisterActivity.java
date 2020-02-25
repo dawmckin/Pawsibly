@@ -26,7 +26,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        mDisplayDate = (TextView) findViewById(R.id.dob_tv);
+        mDisplayDate = (TextView) findViewById(R.id.dob_et);
 
         mDisplayDate.setOnClickListener(new View.OnClickListener() {
             @Override
