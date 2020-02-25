@@ -3,9 +3,11 @@ package com.example.pawsibly;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -15,17 +17,25 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+
 public class LoginActivity extends AppCompatActivity {
 
     SignInButton signinbtn;
     GoogleSignInClient mGoogleSignInClient;
     int RC_SIGN_IN = 1;
-    String personEmail, personId;
+    String personEmail, personId, googleID;
+    Boolean register_status;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
 
         signinbtn = findViewById(R.id.sign_in_button);
         signinbtn.setOnClickListener(new View.OnClickListener() {
@@ -33,8 +43,14 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 switch (view.getId()) {
                     case R.id.sign_in_button:
-                        signIn();
-                        break;
+                        registrationCheck();
+                        if (register_status == true) {
+                            signIn();
+                            break;
+                        } else {
+                            register();
+                        }
+
                 }
             }
         });
@@ -51,6 +67,58 @@ public class LoginActivity extends AppCompatActivity {
             personEmail = acct.getEmail();
             personId = acct.getId();
         }
+
+        getJSON("https://cgi.sice.indiana.edu/~team53/login.php?gid="+ personId);
+
+    }
+
+    private void getJSON(final String urlWebServices) {
+
+        class GetJSON extends AsyncTask<Void, Void, String> {
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                googleID = s;
+            }
+
+            @Override
+            protected String doInBackground(Void... voids) {
+                try {
+                    URL url = new URL(urlWebServices);
+                    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                    StringBuilder sb = new StringBuilder();
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                    String json;
+                    while ((json = bufferedReader.readLine()) != null) {
+                        sb.append(json + "\n");
+                    }
+                    return sb.toString().trim();
+                } catch (Exception e) {
+                    return e.toString().trim();
+                }
+            }
+        }
+
+        GetJSON getJSON = new GetJSON();
+        getJSON.execute();
+    }
+
+    private void registrationCheck() {
+        if (googleID.contains(personId)) {
+            register_status = true;
+        } else {
+            register_status = false;
+        }
+    }
+
+    private void register() {
+        Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+        startActivity(intent);
     }
 
     private void signIn() {
@@ -77,7 +145,6 @@ public class LoginActivity extends AppCompatActivity {
 
             Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
             startActivity(intent);
-
         } catch (ApiException e) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
