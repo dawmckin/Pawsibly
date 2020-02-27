@@ -15,4 +15,3 @@ protected void onCreate(Bundle savedInstanceState) {
         LOCATION_REFRESH_DISTANCE, mLocationListener);
         }
 
-<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>

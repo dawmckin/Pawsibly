@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1cf98df9-35ce-4a0d-96f5-eb1beaf45249" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/team-53/app/Pawsibly/app/src/main/java/com/example/pawsibly/LocationActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/team-53" beforeDir="false" afterPath="$PROJECT_DIR$/team-53" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/team-53/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/team-53/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Pawsibly/app/src/main/java/com/example/pawsibly/LocationActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/Pawsibly/app/src/main/java/com/example/pawsibly/LocationActivity.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,6 +18,20 @@
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Pawsibly/app/src/main/java/com/example/pawsibly/LocationActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Pawsibly/app/src/main/java/com/example/pawsibly/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Pawsibly/app/src/main/java/com/example/pawsibly/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
@@ -28,11 +40,17 @@
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/team-53/app/Pawsibly/app/src/main/java/com/example/pawsibly/LocationActivity.java" />
+        <option value="$PROJECT_DIR$/app/Pawsibly/app/src/main/java/com/example/pawsibly/LocationActivity.java" />
       </list>
     </option>
   </component>
@@ -47,8 +65,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="178" />
-    <option name="y" value="41" />
+    <option name="x" value="363" />
+    <option name="y" value="66" />
     <option name="width" value="1217" />
     <option name="height" value="834" />
   </component>
@@ -60,6 +78,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -153,7 +172,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -189,8 +207,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="178" y="41" width="1217" height="834" extended-state="0" />
-    <editor active="true" />
+    <frame x="178" y="23" width="1217" height="834" extended-state="0" />
     <layout>
       <window_info id="Captures" order="0" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.39130434" />
@@ -210,30 +227,20 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/team-53/app/Pawsibly/app/src/main/java/com/example/pawsibly/LocationActivity.java">
+    <entry file="file://$PROJECT_DIR$/team-53/app/Pawsibly/app/src/main/java/com/example/pawsibly/LocationActivity.java" />
+    <entry file="file://$PROJECT_DIR$/team-53/app/Pawsibly/app/src/main/java/com/example/pawsibly/LoginActivity.java" />
+    <entry file="file://$PROJECT_DIR$/team-53/app/Pawsibly/app/src/main/java/com/example/pawsibly/MainActivity.java" />
+    <entry file="file://$PROJECT_DIR$/app/Pawsibly/app/src/main/java/com/example/pawsibly/LocationActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="255">
+          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/team-53/app/Pawsibly/app/src/main/java/com/example/pawsibly/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-560">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/team-53/app/Pawsibly/app/src/main/java/com/example/pawsibly/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/Pawsibly/app/src/main/java/com/example/pawsibly/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Pawsibly/app/src/main/java/com/example/pawsibly/LocationActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/Pawsibly/app/src/main/java/com/example/pawsibly/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
