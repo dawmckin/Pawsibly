@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1cf98df9-35ce-4a0d-96f5-eb1beaf45249" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Pawsibly/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/Pawsibly/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Pawsibly/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Pawsibly/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Pawsibly/app/src/main/java/com/example/pawsibly/LocationActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/Pawsibly/app/src/main/java/com/example/pawsibly/LocationActivity.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,11 +17,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Pawsibly/app/src/main/java/com/example/pawsibly/LocationActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+            <state relative-caret-position="45">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Pawsibly/app/src/main/res/layout/activity_location.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="825">
+              <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Pawsibly/app/src/main/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="79" selection-start-line="6" selection-start-column="79" selection-end-line="6" selection-end-column="79" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Pawsibly/app/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="30" column="65" selection-start-line="30" selection-start-column="65" selection-end-line="30" selection-end-column="65" />
             </state>
           </provider>
         </entry>
@@ -50,23 +78,16 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/team-53/app/Pawsibly/app/src/main/java/com/example/pawsibly/LocationActivity.java" />
+        <option value="$PROJECT_DIR$/app/Pawsibly/app/src/main/res/layout/activity_location.xml" />
+        <option value="$PROJECT_DIR$/app/Pawsibly/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/Pawsibly/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/Pawsibly/app/src/main/java/com/example/pawsibly/LocationActivity.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectConfigurationFiles">
-    <option name="files">
-      <list>
-        <option value="$PROJECT_DIR$/.idea/snr-mobile.iml" />
-        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
-        <option value="$PROJECT_DIR$/.idea/modules.xml" />
-        <option value="$PROJECT_DIR$/.idea/codeStyles/Project.xml" />
-      </list>
-    </option>
-  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="363" />
-    <option name="y" value="66" />
+    <option name="x" value="163" />
+    <option name="y" value="23" />
     <option name="width" value="1217" />
     <option name="height" value="834" />
   </component>
@@ -168,6 +189,27 @@
               <item name="example" type="462c0819:PsiDirectoryNode" />
               <item name="pawsibly" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="snr-mobile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="snr-mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Pawsibly" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="snr-mobile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="snr-mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Pawsibly" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="layout" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -207,7 +249,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="178" y="23" width="1217" height="834" extended-state="0" />
+    <frame x="163" y="23" width="1217" height="834" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.39130434" />
@@ -221,6 +264,7 @@
       <window_info anchor="bottom" id="TODO" order="1" />
       <window_info anchor="bottom" id="Terminal" order="2" visible="true" weight="0.3328841" />
       <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
+      <window_info anchor="right" id="Preview" weight="0.3344681" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="right" id="Theme Preview" order="1" />
       <window_info anchor="right" id="Palette&#9;" order="2" />
@@ -230,18 +274,39 @@
     <entry file="file://$PROJECT_DIR$/team-53/app/Pawsibly/app/src/main/java/com/example/pawsibly/LocationActivity.java" />
     <entry file="file://$PROJECT_DIR$/team-53/app/Pawsibly/app/src/main/java/com/example/pawsibly/LoginActivity.java" />
     <entry file="file://$PROJECT_DIR$/team-53/app/Pawsibly/app/src/main/java/com/example/pawsibly/MainActivity.java" />
-    <entry file="file://$PROJECT_DIR$/app/Pawsibly/app/src/main/java/com/example/pawsibly/LocationActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Pawsibly/app/src/main/java/com/example/pawsibly/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Pawsibly/app/src/main/java/com/example/pawsibly/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Pawsibly/app/src/main/java/com/example/pawsibly/LocationActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Pawsibly/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="65" selection-start-line="30" selection-start-column="65" selection-end-line="30" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Pawsibly/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="79" selection-start-line="6" selection-start-column="79" selection-end-line="6" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Pawsibly/app/src/main/res/layout/activity_location.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">
