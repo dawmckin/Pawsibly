@@ -2,53 +2,50 @@ package com.example.pawsibly;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
+import com.mindorks.placeholderview.SwipeDecor;
+import com.mindorks.placeholderview.SwipePlaceHolderView;
 
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 
 public class HomeActivity extends AppCompatActivity {
 
-    ImageView pet_profile_pic;
+    private SwipePlaceHolderView mSwipeView;
+    private Context mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        pet_profile_pic = (ImageView) findViewById(R.id.pet_profile_iv);
+        mSwipeView = (SwipePlaceHolderView) findViewById(R.id.swipeview);
+        mContext = getApplicationContext();
 
-    }
+        mSwipeView.getBuilder()
+                .setDisplayViewCount(3)
+                .setSwipeDecor(new SwipeDecor()
+                    .setPaddingTop(20)
+                    .setRelativeScale(0.01f)
+                    .setSwipeInMsgLayoutId(R.layout.swipe_in_msg_view)
+                    .setSwipeOutMsgLayoutId(R.layout.swipe_out_msg_view));
 
-    public void OnLike(View view) {
-        String type = "like";
-        BackgroundWorker backgroundWorker = new BackgroundWorker(this);
-        backgroundWorker.execute(type);
-    }
+        for (Profile profile : Pet_Profile_Utils.loadProfiles(this.getApplicationContext())) {
+            mSwipeView.addView(new Card(mContext, profile, mSwipeView));
+        }
 
-    public void OnDislike(View view) {
-        String type = "dislike";
-        BackgroundWorker backgroundWorker = new BackgroundWorker(this);
-        backgroundWorker.execute(type);
-    }
+        findViewById(R.id.dislike_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mSwipeView.doSwipe(false);
+            }
+        });
 
-    public void OnUserProfile(View view) {
-        Intent intent = new Intent(HomeActivity.this, UserProfileActivity.class);
-        startActivity(intent);
-    }
-
-    public void OnMessage(View view) {
-        Intent intent = new Intent(HomeActivity.this, MessageActivity.class);
-        startActivity(intent);
-    }
-
-    public void OnInfo(View view) {
-        Intent intent = new Intent(HomeActivity.this, UserProfileActivity.class);
-        startActivity(intent);
+        findViewById(R.id.like_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mSwipeView.doSwipe(true);
+            }
+        });
     }
 }
