@@ -16,7 +16,8 @@
         android:layout_marginTop="16dp"
         android:src="@drawable/user_icon_off"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="OnUserProfile"/>
 
     <ImageView
         android:id="@+id/paws_iv"
@@ -37,7 +38,8 @@
         android:layout_marginRight="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/message_icon_off" />
+        app:srcCompat="@drawable/message_icon_off"
+        android:onClick="OnMessage"/>
 
     <ImageView
         android:id="@+id/pet_profile_iv"
@@ -58,7 +60,8 @@
         android:layout_marginBottom="20dp"
         android:src="@drawable/dislike"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="OnDislike"/>
 
     <ImageView
         android:id="@+id/like_btn"
@@ -69,7 +72,8 @@
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/like" />
+        app:srcCompat="@drawable/like"
+        android:onClick="OnLike"/>
 
     <ImageView
         android:id="@+id/pet_info_iv"
@@ -80,5 +84,6 @@
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/pet_profile_iv"
         app:layout_constraintEnd_toEndOf="@+id/pet_profile_iv"
-        app:srcCompat="@drawable/pet_info" />
+        app:srcCompat="@drawable/pet_info"
+        android:onClick="OnInfo"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
