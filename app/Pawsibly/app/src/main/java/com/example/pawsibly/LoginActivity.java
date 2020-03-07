@@ -43,14 +43,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 switch (view.getId()) {
                     case R.id.sign_in_button:
-                        registrationCheck();
-                        if (register_status == true) {
-                            signIn();
-                            break;
-                        } else {
-                            register();
-                        }
-
+                        signIn();
+                        break;
                 }
             }
         });
@@ -81,12 +75,6 @@ public class LoginActivity extends AppCompatActivity {
             }
 
             @Override
-            protected void onPostExecute(String s) {
-                super.onPostExecute(s);
-                googleID = s;
-            }
-
-            @Override
             protected String doInBackground(Void... voids) {
                 try {
                     URL url = new URL(urlWebServices);
@@ -102,24 +90,20 @@ public class LoginActivity extends AppCompatActivity {
                     return e.toString().trim();
                 }
             }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                googleID = s;
+            }
         }
 
         GetJSON getJSON = new GetJSON();
         getJSON.execute();
     }
 
-    private void registrationCheck() {
-        if (googleID.contains(personId)) {
-            register_status = true;
-        } else {
-            register_status = false;
-        }
-    }
 
-    private void register() {
-        Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-        startActivity(intent);
-    }
+
 
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
@@ -143,12 +127,21 @@ public class LoginActivity extends AppCompatActivity {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
 
-            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-            startActivity(intent);
+            if (googleID.contains(personId)) {
+                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                startActivity(intent);
+            } else {
+                acctRegister();
+            }
         } catch (ApiException e) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
             Log.w("Error", "signInResult:failed code=" + e.getStatusCode());
         }
     }
+    private void acctRegister() {
+        Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+        startActivity(intent);
+    }
+
 }
