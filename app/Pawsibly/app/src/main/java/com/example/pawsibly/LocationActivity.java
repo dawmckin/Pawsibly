@@ -5,13 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -41,9 +41,9 @@ public class LocationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.activity_location);
 
-        buttonEnableLocation = (Button)findViewById(R.id.enable_location_btn);
+        buttonEnableLocation = findViewById(R.id.buttonEnableLocation);
 
         locationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         locationRequest = LocationRequest.create();
@@ -73,7 +73,7 @@ public class LocationActivity extends AppCompatActivity {
             }
         });
 
-        }
+    }
 
     private void getLocation() {
         if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)== PackageManager.PERMISSION_GRANTED &&
@@ -92,6 +92,9 @@ public class LocationActivity extends AppCompatActivity {
                     Log.i(TAG, "Exception while getting the location: "+e.getMessage());
                 }
             });
+
+            Intent intent = new Intent(LocationActivity.this, HomeActivity.class);
+            startActivity(intent);
 
 
         }else {
