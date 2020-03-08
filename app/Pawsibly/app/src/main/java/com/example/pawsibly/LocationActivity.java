@@ -1,80 +1,92 @@
-/*package com.example.pawsibly;
+package com.example.pawsibly;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.location.Criteria;
+import androidx.core.app.ActivityCompat;
+
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.ResultReceiver;
-import android.provider.Settings;
-import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.pawsibly.R;
-
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationAvailability;
+import com.google.android.gms.location.LocationCallback;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationResult;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 
 public class LocationActivity extends AppCompatActivity {
 
-    LocationManager locationManager;
-    double longitudeBest, latitudeBest;
-    double longitudeGPS, latitudeGPS;
-    double longitudeNetwork, latitudeNetwork;
-    TextView longitudeValueBest, latitudeValueBest;
-    TextView longitudeValueGPS, latitudeValueGPS;
-    TextView longitudeValueNetwork, latitudeValueNetwork;
+    private static final String TAG = LocationActivity.class.getSimpleName();
 
+    private static final int UPDATE_INTERVAL = 5000; // 5 seconds
+
+    FusedLocationProviderClient locationProviderClient;
+    LocationRequest locationRequest;
+    private Location currentLocation;
+
+    private int LOCATION_PERMISSION = 100;
+
+    Button enable_location_btn;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_location);
-        locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+        setContentView(R.layout.activity_register);
 
-        longitudeValueBest = (TextView) findViewById(R.id.longitudeValueBest);
-        latitudeValueBest = (TextView) findViewById(R.id.latitudeValueBest);
-        longitudeValueGPS = (TextView) findViewById(R.id.longitudeValueGPS);
-        latitudeValueGPS = (TextView) findViewById(R.id.latitudeValueGPS);
-        longitudeValueNetwork = (TextView) findViewById(R.id.longitudeValueNetwork);
-        latitudeValueNetwork = (TextView) findViewById(R.id.latitudeValueNetwork);
+        buttonEnableLocation = (Button)findViewById(R.id.enable_location_btn);
+
+        locationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+        locationRequest = LocationRequest.create();
+        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+        locationRequest.setInterval(UPDATE_INTERVAL);
+    };
+
+    buttonEnableLocation.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            startGettingLocation();
+        }
+    });
+
+    private void startGettingLocation() {
+        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)== PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)== PackageManager.PERMISSION_GRANTED){
+            locationProviderClient.requestLocationUpdates(locationRequest,locationCallback, MainActivity.this.getMainLooper());
+            locationProviderClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
+                @Override
+                public void onSuccess(Location location) {
+                    currentLocation = location;
+                    textViewLatitude.setText(""+currentLocation.getLatitude());
+                    textViewLongitude.setText(""+currentLocation.getLongitude());
+                }
+            });
+
+            locationProviderClient.getLastLocation().addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Log.i(TAG, "Exception while getting the location: "+e.getMessage());
+                }
+            });
+
+
+        }else {
+            if(ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)){
+                Toast.makeText(MainActivity.this, "Permission needed", Toast.LENGTH_LONG).show();
+            } else {
+                ActivityCompat.requestPermissions(MainActivity.this,
+                        new String[] { Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION},
+                        LOCATION_PERMISSION);
+            }
+        }
     }
 
-    private boolean checkLocation() {
-        if(!isLocationEnabled())
-            showAlert();
-        return isLocationEnabled();
-    }
-
-    private void showAlert() {
-        final AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-        dialog.setTitle("ENABLE LOCATION")
-                .setMessage("Your location settings is set to 'OFF'.\nPlease Enable Location to " +
-                        "get full functionality of Pawsibly")
-                .setPositiveButton("Location Settings", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface paramDialogInterface, int paramInt) {
-                        Intent myIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                        startActivity(myIntent);
-                    }
-                })
-                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface paramDialogInterface, int paramInt) {
-                    }
-                });
-        dialog.show();
-    }
-
-    private boolean isLocationEnabled() {
-        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) ||
-                locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
-    }}
-*/
+}
