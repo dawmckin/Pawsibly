@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Account Type"
+        android:text="Add pet"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/acct_type_btn"
@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:text="Change Filters"
+        android:text="View Pets"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -50,7 +50,7 @@
         android:layout_marginRight="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/home_icon_off" />
+        app:srcCompat="@drawable/message_icon_off" />
 
     <ImageView
         android:id="@+id/user_pic_iv"
@@ -60,7 +60,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/user_pic" />
+        app:srcCompat="@drawable/add_profile_picture" />
+
 
     <ImageView
         android:id="@+id/logo"
@@ -112,7 +113,7 @@
         app:layout_constraintEnd_toEndOf="@+id/change_filter_btn"
         app:layout_constraintStart_toStartOf="@+id/change_filter_btn"
         app:layout_constraintTop_toTopOf="@+id/change_filter_btn"
-        app:srcCompat="@drawable/filters" />
+        app:srcCompat="@drawable/list_icon" />
 
     <ImageView
         android:id="@+id/logout_btn"
@@ -134,7 +135,7 @@
         android:layout_marginBottom="90dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/acct_icon" />
+        app:srcCompat="@drawable/add_pet_icon" />
 
     <TextView
         android:id="@+id/logout_tv"
