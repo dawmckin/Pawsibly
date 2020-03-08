@@ -59,7 +59,6 @@
             android:layout_marginLeft="75dp"
             app:srcCompat="@drawable/like"/>
     </LinearLayout>
-
     <com.mindorks.placeholderview.SwipePlaceHolderView
         android:id="@+id/swipeview"
         android:layout_width="match_parent"
@@ -67,12 +66,13 @@
         android:layout_marginTop="50dp"
         android:layout_marginBottom="100dp">
 
-        <ImageView
+        <Button
             android:id="@+id/pet_info_iv"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="end|bottom"
-            app:srcCompat="@drawable/pet_info" />
+            android:background="@drawable/pet_info"
+            android:onClick="showAlertDialog" />
     </com.mindorks.placeholderview.SwipePlaceHolderView>
 
 

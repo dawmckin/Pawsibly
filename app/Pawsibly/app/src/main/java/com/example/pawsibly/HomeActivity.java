@@ -1,11 +1,14 @@
 package com.example.pawsibly;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.mindorks.placeholderview.SwipeDecor;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
@@ -15,14 +18,12 @@ public class HomeActivity extends AppCompatActivity {
 
     private SwipePlaceHolderView mSwipeView;
     private Context mContext;
-    Button pet_info_btn:
+    String bio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
-        pet_info_btn
 
         mSwipeView = (SwipePlaceHolderView) findViewById(R.id.swipeview);
         mContext = getApplicationContext();
@@ -37,6 +38,7 @@ public class HomeActivity extends AppCompatActivity {
 
         for (Profile profile : Pet_Profile_Utils.loadProfiles(this.getApplicationContext())) {
             mSwipeView.addView(new Card(mContext, profile, mSwipeView));
+            bio = profile.getBio();
         }
 
         findViewById(R.id.dislike_btn).setOnClickListener(new View.OnClickListener() {
@@ -53,6 +55,6 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-
     }
+
 }
