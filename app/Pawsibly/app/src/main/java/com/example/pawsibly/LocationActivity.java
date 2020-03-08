@@ -43,6 +43,50 @@ public class LocationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         buttonEnableLocation = (Button)findViewById(R.id.enable_location_btn);
+
+        locationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+        locationRequest = LocationRequest.create();
+        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+        locationRequest.setInterval(UPDATE_INTERVAL);
+    };
+
+    buttonEnableLocation.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            startGettingLocation();
+        }
+    });
+
+    private void startGettingLocation() {
+        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)== PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)== PackageManager.PERMISSION_GRANTED){
+            locationProviderClient.requestLocationUpdates(locationRequest,locationCallback, MainActivity.this.getMainLooper());
+            locationProviderClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
+                @Override
+                public void onSuccess(Location location) {
+                    currentLocation = location;
+                    textViewLatitude.setText(""+currentLocation.getLatitude());
+                    textViewLongitude.setText(""+currentLocation.getLongitude());
+                }
+            });
+
+            locationProviderClient.getLastLocation().addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Log.i(TAG, "Exception while getting the location: "+e.getMessage());
+                }
+            });
+
+
+        }else {
+            if(ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)){
+                Toast.makeText(MainActivity.this, "Permission needed", Toast.LENGTH_LONG).show();
+            } else {
+                ActivityCompat.requestPermissions(MainActivity.this,
+                        new String[] { Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION},
+                        LOCATION_PERMISSION);
+            }
+        }
     }
 
 }
