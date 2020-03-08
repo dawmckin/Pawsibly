@@ -48,10 +48,10 @@ public class LocationActivity extends AppCompatActivity {
         locationRequest = LocationRequest.create();
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         locationRequest.setInterval(UPDATE_INTERVAL);
+
     };
 
     buttonEnableLocation.setOnClickListener(new View.OnClickListener() {
-        @Override
         public void onClick(View view) {
             getLocation();
         }
