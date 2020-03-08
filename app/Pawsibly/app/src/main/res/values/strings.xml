@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Pawsibly</string>
-    <string name="type_here">Type a message here…</string>
+	<string name="type_here">Type a message here…</string>
     <string name="send">Send</string>
 </resources>
