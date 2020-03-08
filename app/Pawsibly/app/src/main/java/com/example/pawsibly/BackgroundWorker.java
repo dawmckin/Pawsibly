@@ -31,8 +31,8 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
                 String dob = params[3];
                 String gender = params[4];
                 String email = params[5];
-                String phone = params[5];
-                String gid = params[5];
+                String phone = params[6];
+                String gid = params[7];
                 URL url = new URL(register_url);
                 HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
                 httpURLConnection.setRequestMethod("POST");
