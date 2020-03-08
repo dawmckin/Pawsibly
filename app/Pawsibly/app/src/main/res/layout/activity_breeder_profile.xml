@@ -8,7 +8,7 @@
     android:background="@drawable/background_home">
 
     <TextView
-        android:id="@+id/acct_type_tv"
+        android:id="@+id/add_pet_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toBottomOf="@+id/acct_type_btn" />
 
     <TextView
-        android:id="@+id/change_filters_tv"
+        android:id="@+id/view_pets_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
@@ -28,8 +28,8 @@
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/change_filter_btn"
-        app:layout_constraintStart_toStartOf="@+id/change_filter_btn" />
+        app:layout_constraintEnd_toEndOf="@+id/view_pets_btn"
+        app:layout_constraintStart_toStartOf="@+id/view_pets_btn" />
 
     <ImageView
         android:id="@+id/paws_iv"
@@ -95,7 +95,7 @@
         app:srcCompat="@drawable/edit_profile" />
 
     <ImageView
-        android:id="@+id/change_filter_btn"
+        android:id="@+id/view_pets_btn"
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:layout_marginBottom="30dp"
@@ -106,13 +106,13 @@
         app:srcCompat="@drawable/ellipse_69" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/pet_list_icon"
         android:layout_width="75dp"
         android:layout_height="75dp"
-        app:layout_constraintBottom_toBottomOf="@+id/change_filter_btn"
-        app:layout_constraintEnd_toEndOf="@+id/change_filter_btn"
-        app:layout_constraintStart_toStartOf="@+id/change_filter_btn"
-        app:layout_constraintTop_toTopOf="@+id/change_filter_btn"
+        app:layout_constraintBottom_toBottomOf="@+id/view_pets_btn"
+        app:layout_constraintEnd_toEndOf="@+id/view_pets_btn"
+        app:layout_constraintStart_toStartOf="@+id/view_pets_btn"
+        app:layout_constraintTop_toTopOf="@+id/view_pets_btn"
         app:srcCompat="@drawable/list_icon" />
 
     <ImageView
