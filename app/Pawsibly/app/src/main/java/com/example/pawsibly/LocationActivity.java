@@ -1,5 +1,7 @@
 package com.example.pawsibly;
 
-public class LocationActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class LocationActivity extends AppCompatActivity {
 
 }
