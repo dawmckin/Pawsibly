@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+
 import com.mindorks.placeholderview.SwipeDecor;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
 
@@ -13,11 +15,14 @@ public class HomeActivity extends AppCompatActivity {
 
     private SwipePlaceHolderView mSwipeView;
     private Context mContext;
+    Button pet_info_btn:
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        pet_info_btn
 
         mSwipeView = (SwipePlaceHolderView) findViewById(R.id.swipeview);
         mContext = getApplicationContext();
@@ -47,5 +52,7 @@ public class HomeActivity extends AppCompatActivity {
                 mSwipeView.doSwipe(true);
             }
         });
+
+
     }
 }
