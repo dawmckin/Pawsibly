@@ -53,20 +53,18 @@ public class LocationActivity extends AppCompatActivity {
     buttonEnableLocation.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            startGettingLocation();
+            getLocation();
         }
     });
 
-    private void startGettingLocation() {
+    private void getLocation() {
         if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)== PackageManager.PERMISSION_GRANTED &&
                 ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)== PackageManager.PERMISSION_GRANTED){
-            locationProviderClient.requestLocationUpdates(locationRequest,locationCallback, MainActivity.this.getMainLooper());
+            locationProviderClient.requestLocationUpdates(locationRequest,locationCallback, LocationActivity.this.getMainLooper());
             locationProviderClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
                 @Override
                 public void onSuccess(Location location) {
                     currentLocation = location;
-                    textViewLatitude.setText(""+currentLocation.getLatitude());
-                    textViewLongitude.setText(""+currentLocation.getLongitude());
                 }
             });
 
@@ -80,13 +78,22 @@ public class LocationActivity extends AppCompatActivity {
 
         }else {
             if(ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)){
-                Toast.makeText(MainActivity.this, "Permission needed", Toast.LENGTH_LONG).show();
+                Toast.makeText(LocationActivity.this, "Permission needed", Toast.LENGTH_LONG).show();
             } else {
-                ActivityCompat.requestPermissions(MainActivity.this,
+                ActivityCompat.requestPermissions(LocationActivity.this,
                         new String[] { Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION},
                         LOCATION_PERMISSION);
             }
         }
     }
+    private void stopLocationRequests(){
+        locationProviderClient.removeLocationUpdates(locationCallback);
+    }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        startGettingLocation();
+
+    }
 }
