@@ -26,6 +26,8 @@
         <activity android:name=".UserProfileActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".RegisterActivity" />
+        <activity android:name=".LocationActivity" />
+        </activity>
     </application>
 
 </manifest>
