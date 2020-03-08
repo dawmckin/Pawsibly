@@ -73,45 +73,51 @@ public class LocationActivity extends AppCompatActivity {
             }
         });
 
-        private void getLocation(){
-            if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)== PackageManager.PERMISSION_GRANTED &&
-                    ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)== PackageManager.PERMISSION_GRANTED){
-                locationProviderClient.requestLocationUpdates(locationRequest,locationCallback, LocationActivity.this.getMainLooper());
-                locationProviderClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
-                    @Override
-                    public void onSuccess(Location location) {
-                        currentLocation = location;
-                    }
-                });
+        }
 
-                locationProviderClient.getLastLocation().addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.i(TAG, "Exception while getting the location: "+e.getMessage());
-                    }
-                });
-
-
-            }else {
-                if(ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)){
-                    Toast.makeText(LocationActivity.this, "Permission needed", Toast.LENGTH_LONG).show();
-                } else {
-                    ActivityCompat.requestPermissions(LocationActivity.this,
-                            new String[] { Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION},
-                            LOCATION_PERMISSION);
+    private void getLocation() {
+        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)== PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)== PackageManager.PERMISSION_GRANTED){
+            locationProviderClient.requestLocationUpdates(locationRequest,locationCallback, LocationActivity.this.getMainLooper());
+            locationProviderClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
+                @Override
+                public void onSuccess(Location location) {
+                    currentLocation = location;
                 }
+            });
+
+            locationProviderClient.getLastLocation().addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Log.i(TAG, "Exception while getting the location: "+e.getMessage());
+                }
+            });
+
+
+        }else {
+            if(ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)){
+                Toast.makeText(LocationActivity.this, "Permission needed", Toast.LENGTH_LONG).show();
+            } else {
+                ActivityCompat.requestPermissions(LocationActivity.this,
+                        new String[] { Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION},
+                        LOCATION_PERMISSION);
             }
         }
-        private void stopLocationRequests(){
-            locationProviderClient.removeLocationUpdates(locationCallback);
-        }
-
-        @Override
-        public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-            startGettingLocation();
-
-        }
-        }
-
     }
+
+    private void stopLocationRequests(){
+        locationProviderClient.removeLocationUpdates(locationCallback);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        getLocation();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        stopLocationRequests();
+    }
+}
