@@ -105,7 +105,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ellipse_69" />
 
-    <ImageView
+    <Button
         android:id="@+id/filter"
         android:layout_width="75dp"
         android:layout_height="75dp"
@@ -113,7 +113,8 @@
         app:layout_constraintEnd_toEndOf="@+id/change_filter_btn"
         app:layout_constraintStart_toStartOf="@+id/change_filter_btn"
         app:layout_constraintTop_toTopOf="@+id/change_filter_btn"
-        app:srcCompat="@drawable/filters" />
+        android:background="@drawable/filters"
+        android:onClick="onSetFilters"/>
 
     <Button
         android:id="@+id/logout_btn"

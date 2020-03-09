@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/edit_user_profile_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/filterAge_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Age:"/>
+    <SeekBar
+        android:id="@+id/filterAge_sb"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:max="10"/>
+    <TextView
+        android:id="@+id/filterRadius_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search Radius:"/>
+    <SeekBar
+        android:id="@+id/filterRadius_sb"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:max="50"/>
+    <TextView
+        android:id="@+id/filterType_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Type:"/>
+    <RadioGroup
+        android:id="@+id/radio_filterType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radio_filterDog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dog"
+            />
+        <RadioButton
+            android:id="@+id/radio_filterCat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cat" />
+    </RadioGroup>
+    <TextView
+        android:id="@+id/filterSize_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Size:"/>
+    <RadioGroup
+        android:id="@+id/radio_filterSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radio_filterSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Small" />
+        <RadioButton
+            android:id="@+id/radio_filterMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Medium" />
+        <RadioButton
+            android:id="@+id/radio_filterLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Large" />
+    </RadioGroup>
+    <TextView
+        android:id="@+id/filterGender_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gender:"/>
+    <RadioGroup
+        android:id="@+id/radio_filterGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radio_filterMale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Male"
+            />
+        <RadioButton
+            android:id="@+id/radio_filterFemale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female" />
+    </RadioGroup>
+</LinearLayout>
+

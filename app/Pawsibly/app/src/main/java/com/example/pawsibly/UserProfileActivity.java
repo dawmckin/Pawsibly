@@ -7,11 +7,13 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.SeekBar;
 import android.widget.Toast;
 
 public class UserProfileActivity extends AppCompatActivity {
@@ -51,7 +53,35 @@ public class UserProfileActivity extends AppCompatActivity {
             }
         });
         alert.create().show();
+    }
 
+    public void onSetFilters(View view) {
+        LayoutInflater li = LayoutInflater.from(context);
+        View set_filters = li.inflate(R.layout.set_filter_prompts, null);
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(context);
+        alert.setView(set_filters);
+        alert.setTitle("Set Filters");
+
+        final SeekBar filter_age = set_filters.findViewById(R.id.filterAge_sb);
+        final SeekBar filter_radius = set_filters.findViewById(R.id.filterRadius_sb);
+        final RadioGroup filter_type = set_filters.findViewById(R.id.radio_filterType);
+        final RadioGroup filter_size = set_filters.findViewById(R.id.radio_filterSize);
+        final RadioGroup filter_gender = set_filters.findViewById(R.id.radio_filterGender);
+
+        alert.setPositiveButton("Submit", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+            }
+        });
+        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        alert.create().show();
     }
 
     public void onLogout(View view) {
