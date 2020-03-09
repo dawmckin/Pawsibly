@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     SignInButton signinbtn;
     GoogleSignInClient mGoogleSignInClient;
     int RC_SIGN_IN = 1;
-    String personEmail, personId, googleEmail;
+    String personEmail, personId, googleID;
 
 
     @Override
@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
             personId = acct.getId();
         }
 
-        getJSON("https://cgi.sice.indiana.edu/~team53/login.php?email="+ personEmail);
+        getJSON("https://cgi.sice.indiana.edu/~team53/login.php?gid="+ personId);
 
     }
 
@@ -90,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
-                googleEmail = s;
+                googleID = s;
                 Toast.makeText(getApplicationContext(),s,Toast.LENGTH_SHORT).show();
             }
         }
@@ -121,7 +121,7 @@ public class LoginActivity extends AppCompatActivity {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
 
-            if (googleEmail.equals(personEmail)) {
+            if (googleID.contains(personId)) {
                 Intent intent = new Intent(LoginActivity.this, LocationActivity.class);
                 startActivity(intent);
             } else {
