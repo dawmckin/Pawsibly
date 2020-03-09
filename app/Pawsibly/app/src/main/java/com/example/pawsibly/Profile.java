@@ -1,7 +1,5 @@
 package com.example.pawsibly;
 
-import android.graphics.Picture;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

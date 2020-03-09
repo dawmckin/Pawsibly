@@ -17,6 +17,7 @@ import com.mindorks.placeholderview.annotations.swipe.SwipeOut;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOutState;
 
 
+
 @Layout(R.layout.card_view)
 public class Card {
 
@@ -32,6 +33,7 @@ public class Card {
     private Profile mProfile;
     private Context mContext;
     private SwipePlaceHolderView mSwipeView;
+
 
     public Card(Context context, Profile profile, SwipePlaceHolderView swipeView) {
         mContext = context;
@@ -71,4 +73,5 @@ public class Card {
     private void onSwipeOutState(){
         Log.d("EVENT", "onSwipeOutState");
     }
+
 }
