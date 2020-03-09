@@ -1,7 +1,6 @@
 package com.example.pawsibly;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,7 +16,6 @@ import com.mindorks.placeholderview.annotations.swipe.SwipeInState;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOut;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOutState;
 
-import androidx.appcompat.app.AlertDialog;
 
 
 @Layout(R.layout.card_view)
@@ -35,6 +33,7 @@ public class Card {
     private Profile mProfile;
     private Context mContext;
     private SwipePlaceHolderView mSwipeView;
+
 
     public Card(Context context, Profile profile, SwipePlaceHolderView swipeView) {
         mContext = context;
@@ -74,4 +73,5 @@ public class Card {
     private void onSwipeOutState(){
         Log.d("EVENT", "onSwipeOutState");
     }
+
 }

@@ -7,7 +7,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -29,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     GoogleSignInClient mGoogleSignInClient;
     int RC_SIGN_IN = 1;
     String personEmail, personId, googleID;
-    Boolean register_status;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +40,7 @@ public class LoginActivity extends AppCompatActivity {
         signinbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                switch (view.getId()) {
-                    case R.id.sign_in_button:
-                        signIn();
-                        break;
-                }
+                signIn();
             }
         });
 
@@ -101,9 +96,6 @@ public class LoginActivity extends AppCompatActivity {
         GetJSON getJSON = new GetJSON();
         getJSON.execute();
     }
-
-
-
 
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
