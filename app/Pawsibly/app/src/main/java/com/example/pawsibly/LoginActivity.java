@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -27,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     SignInButton signinbtn;
     GoogleSignInClient mGoogleSignInClient;
     int RC_SIGN_IN = 1;
-    String personEmail, personId, googleID;
+    String personEmail, personId, googleEmail;
 
 
     @Override
@@ -57,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
             personId = acct.getId();
         }
 
-        getJSON("https://cgi.sice.indiana.edu/~team53/login.php?gid="+ personId);
+        getJSON("https://cgi.sice.indiana.edu/~team53/login.php?email="+ personEmail);
 
     }
 
@@ -89,7 +90,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
-                googleID = s;
+                googleEmail = s;
+                Toast.makeText(getApplicationContext(),s,Toast.LENGTH_SHORT).show();
             }
         }
 
@@ -119,7 +121,7 @@ public class LoginActivity extends AppCompatActivity {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
 
-            if (googleID.contains(personId)) {
+            if (googleEmail.equals(personEmail)) {
                 Intent intent = new Intent(LoginActivity.this, LocationActivity.class);
                 startActivity(intent);
             } else {
