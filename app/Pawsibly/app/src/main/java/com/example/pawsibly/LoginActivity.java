@@ -128,7 +128,7 @@ public class LoginActivity extends AppCompatActivity {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
 
             if (googleID.contains(personId)) {
-                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                Intent intent = new Intent(LoginActivity.this, LocationActivity.class);
                 startActivity(intent);
             } else {
                 acctRegister();
