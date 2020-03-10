@@ -59,6 +59,7 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         getJSON("https://cgi.sice.indiana.edu/~team53/login.php?gid="+ personId);
+        getJSON("https://cgi.sice.indiana.edu/~team53/login_sb.php?gid="+ personId);
 
     }
 
@@ -134,7 +135,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
     private void acctRegister() {
-        Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+        Intent intent = new Intent(LoginActivity.this, ChooseAccountActivity.class);
         startActivity(intent);
     }
 
