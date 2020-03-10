@@ -1,19 +1,22 @@
 package  com.example.pawsibly;
 
-//import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import androidx.appcompat.app.AppCompatActivity;
 
 
 public class MessageBoardActivity extends AppCompatActivity {
+
     private DatabaseReference myDatabase;
 
     @Override
@@ -43,7 +46,8 @@ public class MessageBoardActivity extends AppCompatActivity {
     public void sendMessage(View view){
         EditText myEditText = findViewById(R.id.editText);
 
-        myDatabase.push().setValue(myEditText.getText().toString());
+        myDatabase.child("Field").setValue(myEditText.getText().toString());
+        //myDatabase.push().setValue(myEditText.getText().toString());
         myEditText.setText("");
     }
 }

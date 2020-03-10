@@ -52,6 +52,8 @@ public class HomeActivity extends AppCompatActivity {
                 mSwipeView.doSwipe(true);
             }
         });
+
+
     }
 
     public void showAlertDialog(View view) {
@@ -68,6 +70,11 @@ public class HomeActivity extends AppCompatActivity {
 
     public void onUserAcct(View view) {
         Intent intent = new Intent(HomeActivity.this, UserProfileActivity.class);
+        startActivity(intent);
+    }
+
+    public void onMessage(View view) {
+        Intent intent = new Intent(HomeActivity.this, MessageBoardActivity.class);
         startActivity(intent);
     }
 }
