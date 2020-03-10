@@ -17,11 +17,12 @@
         android:orientation="horizontal"
         android:layout_marginTop="10dp">
 
-        <ImageView
+        <Button
             android:id="@+id/user_icon_iv"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            app:srcCompat="@drawable/user_icon_off"
+            android:background="@drawable/user_icon_off"
+            android:onClick="onUserAcct"
             />
         <ImageView
             android:id="@+id/paws_iv"
@@ -31,11 +32,11 @@
             android:layout_marginRight="120dp"
             app:srcCompat="@drawable/home_icon_on" />
 
-        <ImageView
+        <Button
             android:id="@+id/message_icon_iv"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            app:srcCompat="@drawable/message_icon_off"
+            android:background="@drawable/message_icon_off"
             />
     </LinearLayout>
 
@@ -51,12 +52,19 @@
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:src="@drawable/dislike"/>
-
+        <Button
+            android:id="@+id/pet_info_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/pet_info"
+            android:onClick="showAlertDialog"/>
         <ImageView
             android:id="@+id/like_btn"
             android:layout_width="75dp"
             android:layout_height="75dp"
-            android:layout_marginLeft="75dp"
             app:srcCompat="@drawable/like"/>
     </LinearLayout>
 
@@ -66,15 +74,6 @@
         android:layout_height="match_parent"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="100dp">
-
-        <ImageView
-            android:id="@+id/pet_info_iv"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="end|bottom"
-            app:srcCompat="@drawable/pet_info" />
     </com.mindorks.placeholderview.SwipePlaceHolderView>
-
-
 
 </FrameLayout>

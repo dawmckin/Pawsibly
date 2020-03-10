@@ -1,10 +1,14 @@
 package com.example.pawsibly;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
 import com.mindorks.placeholderview.SwipeDecor;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
 
@@ -13,6 +17,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private SwipePlaceHolderView mSwipeView;
     private Context mContext;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,5 +52,22 @@ public class HomeActivity extends AppCompatActivity {
                 mSwipeView.doSwipe(true);
             }
         });
+    }
+
+    public void showAlertDialog(View view) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            alert.setTitle("Pet Bio");
+            alert.setMessage("I a dog Bro.");
+            alert.setPositiveButton("Close", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                }
+            });
+            alert.create().show();
+    }
+
+    public void onUserAcct(View view) {
+        Intent intent = new Intent(HomeActivity.this, UserProfileActivity.class);
+        startActivity(intent);
     }
 }

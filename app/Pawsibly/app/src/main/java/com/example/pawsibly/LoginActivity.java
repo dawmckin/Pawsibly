@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     GoogleSignInClient mGoogleSignInClient;
     int RC_SIGN_IN = 1;
     String personEmail, personId, googleID;
-    Boolean register_status;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +41,7 @@ public class LoginActivity extends AppCompatActivity {
         signinbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                switch (view.getId()) {
-                    case R.id.sign_in_button:
-                        signIn();
-                        break;
-                }
+                signIn();
             }
         });
 
@@ -95,15 +91,13 @@ public class LoginActivity extends AppCompatActivity {
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
                 googleID = s;
+                Toast.makeText(getApplicationContext(),s,Toast.LENGTH_SHORT).show();
             }
         }
 
         GetJSON getJSON = new GetJSON();
         getJSON.execute();
     }
-
-
-
 
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
@@ -128,7 +122,7 @@ public class LoginActivity extends AppCompatActivity {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
 
             if (googleID.contains(personId)) {
-                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                Intent intent = new Intent(LoginActivity.this, LocationActivity.class);
                 startActivity(intent);
             } else {
                 acctRegister();
