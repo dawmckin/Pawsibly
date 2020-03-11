@@ -59,7 +59,6 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         getJSON("https://cgi.sice.indiana.edu/~team53/login.php?gid="+ personId);
-        getJSON("https://cgi.sice.indiana.edu/~team53/login_sb.php?gid="+ personId);
 
     }
 
@@ -121,9 +120,8 @@ public class LoginActivity extends AppCompatActivity {
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-
             if (googleID.contains(personId)) {
-                Intent intent = new Intent(LoginActivity.this, LocationActivity.class);
+                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                 startActivity(intent);
             } else {
                 acctRegister();
@@ -134,6 +132,7 @@ public class LoginActivity extends AppCompatActivity {
             Log.w("Error", "signInResult:failed code=" + e.getStatusCode());
         }
     }
+
     private void acctRegister() {
         Intent intent = new Intent(LoginActivity.this, ChooseAccountActivity.class);
         startActivity(intent);
