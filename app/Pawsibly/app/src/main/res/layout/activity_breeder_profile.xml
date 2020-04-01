@@ -95,7 +95,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ellipse_69" />
 
-    <ImageView
+    <Button
         android:id="@+id/pet_list_icon"
         android:layout_width="75dp"
         android:layout_height="75dp"
@@ -103,7 +103,8 @@
         app:layout_constraintEnd_toEndOf="@+id/view_pets_btn"
         app:layout_constraintStart_toStartOf="@+id/view_pets_btn"
         app:layout_constraintTop_toTopOf="@+id/view_pets_btn"
-        app:srcCompat="@drawable/list_icon" />
+        android:background="@drawable/list_icon"
+        android:onClick="onAnimalList"/>
 
     <Button
         android:id="@+id/logout_btn"
