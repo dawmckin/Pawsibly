@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     SignInButton signinbtn;
     GoogleSignInClient mGoogleSignInClient;
     int RC_SIGN_IN = 1;
-    String personEmail, personId, googleID;
+    String personEmail, personId, googleID_RU, googleID_SB;
 
 
     @Override
@@ -58,11 +58,11 @@ public class LoginActivity extends AppCompatActivity {
             personId = acct.getId();
         }
 
-        getJSON("https://cgi.sice.indiana.edu/~team53/login.php?gid="+ personId);
-
+        getJSONUsers("https://cgi.sice.indiana.edu/~team53/login.php?gid="+ personId);
+        getJSONShelterBreeder("https://cgi.sice.indiana.edu/~team53/login_sb.php?gid="+ personId);
     }
 
-    private void getJSON(final String urlWebServices) {
+    private void getJSONUsers(final String urlWebServices) {
 
         class GetJSON extends AsyncTask<Void, Void, String> {
             @Override
@@ -90,8 +90,45 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
-                googleID = s;
-                Toast.makeText(getApplicationContext(),s,Toast.LENGTH_SHORT).show();
+                googleID_RU = s;
+                /*Toast.makeText(getApplicationContext(),s,Toast.LENGTH_SHORT).show();*/
+            }
+        }
+
+        GetJSON getJSON = new GetJSON();
+        getJSON.execute();
+    }
+
+    private void getJSONShelterBreeder(final String urlWebServices) {
+
+        class GetJSON extends AsyncTask<Void, Void, String> {
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+            }
+
+            @Override
+            protected String doInBackground(Void... voids) {
+                try {
+                    URL url = new URL(urlWebServices);
+                    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                    StringBuilder sb = new StringBuilder();
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                    String json;
+                    while ((json = bufferedReader.readLine()) != null) {
+                        sb.append(json + "\n");
+                    }
+                    return sb.toString().trim();
+                } catch (Exception e) {
+                    return e.toString().trim();
+                }
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                googleID_SB = s;
+                /*Toast.makeText(getApplicationContext(),s,Toast.LENGTH_SHORT).show();*/
             }
         }
 
@@ -108,10 +145,7 @@ public class LoginActivity extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
-            // The Task returned from this call is always completed, no need to attach
-            // a listener.
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             handleSignInResult(task);
         }
@@ -120,15 +154,18 @@ public class LoginActivity extends AppCompatActivity {
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-            if (googleID.contains(personId)) {
+
+            if (googleID_RU.contains(personId)) {
                 Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                startActivity(intent);
+            } else if (googleID_SB.contains(personId)) {
+                Intent intent = new Intent(LoginActivity.this, BreederProfileActivity.class);
                 startActivity(intent);
             } else {
                 acctRegister();
             }
+
         } catch (ApiException e) {
-            // The ApiException status code indicates the detailed failure reason.
-            // Please refer to the GoogleSignInStatusCodes class reference for more information.
             Log.w("Error", "signInResult:failed code=" + e.getStatusCode());
         }
     }
