@@ -37,7 +37,6 @@ public class LocationActivity extends AppCompatActivity {
     private int LOCATION_PERMISSION = 100;
 
     Button buttonEnableLocation;
-
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -95,7 +94,6 @@ public class LocationActivity extends AppCompatActivity {
 
             Intent intent = new Intent(LocationActivity.this, HomeActivity.class);
             startActivity(intent);
-
 
         }else {
             if(ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)){
