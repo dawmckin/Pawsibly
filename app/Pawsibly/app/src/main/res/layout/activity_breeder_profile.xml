@@ -52,16 +52,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/message_icon_off" />
 
+
     <ImageView
         android:id="@+id/user_pic_iv"
         android:layout_width="174dp"
         android:layout_height="331dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="56dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/add_profile_picture" />
-
 
     <ImageView
         android:id="@+id/logo"
@@ -73,26 +74,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/pawsibly_logo" />
 
-    <ImageView
-        android:id="@+id/edit_profile_btn"
-        android:layout_width="313dp"
-        android:layout_height="136dp"
-        android:layout_marginTop="300dp"
+
+    <Button
+        android:id="@+id/edit_sb_profile_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/rectangle_122" />
-
-    <ImageView
-        android:id="@+id/edit_profile_tv"
-        android:layout_width="261dp"
-        android:layout_height="37dp"
-        app:layout_constraintBottom_toBottomOf="@+id/edit_profile_btn"
-        app:layout_constraintEnd_toEndOf="@+id/edit_profile_btn"
-        app:layout_constraintStart_toStartOf="@+id/edit_profile_btn"
-        app:layout_constraintTop_toTopOf="@+id/edit_profile_btn"
-        app:layout_constraintVertical_bias="0.55"
-        app:srcCompat="@drawable/edit_profile" />
+        app:layout_constraintTop_toBottomOf="@+id/user_pic_iv" />
 
     <ImageView
         android:id="@+id/view_pets_btn"
@@ -115,7 +105,7 @@
         app:layout_constraintTop_toTopOf="@+id/view_pets_btn"
         app:srcCompat="@drawable/list_icon" />
 
-    <ImageView
+    <Button
         android:id="@+id/logout_btn"
         android:layout_width="90dp"
         android:layout_height="90dp"
@@ -124,9 +114,10 @@
         android:layout_marginBottom="90dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/logout_icon" />
+        android:background="@drawable/logout_icon"
+        android:onClick="onLogout"/>
 
-    <ImageView
+    <Button
         android:id="@+id/acct_type_btn"
         android:layout_width="90dp"
         android:layout_height="90dp"
@@ -135,7 +126,8 @@
         android:layout_marginBottom="90dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/add_pet_icon" />
+        android:background="@drawable/add_pet_icon"
+        android:onClick="onAddAnimal"/>
 
     <TextView
         android:id="@+id/logout_tv"

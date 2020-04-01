@@ -1,105 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/set_filters_layout"
+    android:id="@+id/add_animal_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/filterAge_tv"
+        android:id="@+id/addName_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Age:"/>
-    <SeekBar
-        android:id="@+id/filterAge_sb"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:max="10"/>
+        android:text="Name:"/>
+    <EditText
+        android:id="@+id/addName_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
     <TextView
-        android:id="@+id/filterRadius_tv"
+        android:id="@+id/addDob_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Search Radius:"/>
-    <SeekBar
-        android:id="@+id/filterRadius_sb"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:max="50"/>
+        android:text="DoB:"/>
+    <EditText
+        android:id="@+id/addDob_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
     <TextView
-        android:id="@+id/filterType_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Type:"/>
-    <RadioGroup
-        android:id="@+id/radio_filterType"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/radio_filterDog"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Dog"
-            />
-        <RadioButton
-            android:id="@+id/radio_filterCat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cat" />
-    </RadioGroup>
-    <TextView
-        android:id="@+id/filterSize_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Size:"/>
-    <RadioGroup
-        android:id="@+id/radio_filterSize"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/radio_filterSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Small" />
-        <RadioButton
-            android:id="@+id/radio_filterMedium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Medium" />
-        <RadioButton
-            android:id="@+id/radio_filterLarge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Large" />
-    </RadioGroup>
-    <TextView
-        android:id="@+id/filterGender_tv"
+        android:id="@+id/addGender_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Gender:"/>
     <RadioGroup
-        android:id="@+id/radio_filterGender"
+        android:id="@+id/radio_addGender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:orientation="horizontal">
 
         <RadioButton
-            android:id="@+id/radio_filterMale"
+            android:id="@+id/radio_addMale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Male"
             />
         <RadioButton
-            android:id="@+id/radio_filterFemale"
+            android:id="@+id/radio_addFemale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Female" />
     </RadioGroup>
-</LinearLayout>
+    <TextView
+        android:id="@+id/addType_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Type:"/>
+    <RadioGroup
+        android:id="@+id/radio_addType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
 
+        <RadioButton
+            android:id="@+id/radio_addDog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dog"
+            />
+        <RadioButton
+            android:id="@+id/radio_addCat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cat" />
+    </RadioGroup>
+    <TextView
+        android:id="@+id/addSize_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Size:"/>
+    <RadioGroup
+        android:id="@+id/radio_addSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radio_addSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Small" />
+        <RadioButton
+            android:id="@+id/radio_addMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Medium" />
+        <RadioButton
+            android:id="@+id/radio_addLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Large" />
+    </RadioGroup>
+    <TextView
+        android:id="@+id/addBio_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bio:"/>
+    <EditText
+        android:id="@+id/addBio_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/addPicture_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Picture:"/>
+    <EditText
+        android:id="@+id/addPicture_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
