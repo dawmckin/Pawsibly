@@ -20,7 +20,7 @@ public class SelectedAnimal extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
-            toolbar.setTitle(bundle.getString("PetName"));
+            toolbar.setTitle(bundle.getString("PetName")+"'s Likes");
         }
     }
 }

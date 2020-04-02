@@ -10,21 +10,37 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+
 public class UserProfileActivity extends AppCompatActivity {
 
     final Context context = this;
+    String personId, gender;
+    EditText lnameInput, fnameInput, phoneInput, bioInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
 
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .requestId()
+                .build();
+
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(UserProfileActivity.this);
+        if (acct != null) {
+            personId = acct.getId();
+        }
     }
-    public void onEditUserProfile(View view) {
+    public void onEditUserProfile(final View view) {
         LayoutInflater li = LayoutInflater.from(context);
         View edit_profile = li.inflate(R.layout.edit_user_profile_prompts, null);
 
@@ -32,11 +48,10 @@ public class UserProfileActivity extends AppCompatActivity {
         alert.setView(edit_profile);
         alert.setTitle("Edit Profile");
 
-        final EditText lnameInput = edit_profile.findViewById(R.id.edtLastName_et);
-        final EditText fnameInput = edit_profile.findViewById(R.id.edtLastName_et);
-        final RadioGroup genderInput = edit_profile.findViewById(R.id.radio_edtGender);
-        final EditText phoneInput = edit_profile.findViewById(R.id.edtPhone_et);
-        final EditText bioInput = edit_profile.findViewById(R.id.edtBio_et);
+        lnameInput = edit_profile.findViewById(R.id.edtLastName_et);
+        fnameInput = edit_profile.findViewById(R.id.edtLastName_et);
+        phoneInput = edit_profile.findViewById(R.id.edtPhone_et);
+        bioInput = edit_profile.findViewById(R.id.edtBio_et);
 
         alert.setPositiveButton("Submit", new DialogInterface.OnClickListener() {
             @Override
@@ -47,10 +62,40 @@ public class UserProfileActivity extends AppCompatActivity {
         alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
+                dialog.dismiss();
             }
         });
         alert.create().show();
+    }
+
+    public void onRadioButtonClicked(View view) {
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.radio_edtMale:
+                if (checked) {
+                    gender = "M";
+                }
+                break;
+            case R.id.radio_edtFemale:
+                if (checked) {
+                    gender = "F";
+                }
+                break;
+        }
+    }
+
+    public void onEditUserProfilePos(View view) {
+        String str_lname = lnameInput.getText().toString();
+        String str_fname = fnameInput.getText().toString();
+        String str_gender = gender;
+        String str_phone = phoneInput.getText().toString();
+        String str_bio = bioInput.getText().toString();
+        String str_gid = personId;
+        String type = "edit_profile";
+        BackgroundWorker backgroundWorker = new BackgroundWorker(this);
+        backgroundWorker.execute(type, str_lname, str_fname, str_gender, str_phone, str_bio, str_gid);
     }
 
     public void onSetFilters(View view) {

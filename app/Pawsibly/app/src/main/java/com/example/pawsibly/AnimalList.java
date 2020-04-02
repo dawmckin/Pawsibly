@@ -12,6 +12,10 @@ import android.widget.ListView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,6 +28,7 @@ import java.net.URL;
 public class AnimalList extends AppCompatActivity {
 
     ListView listView;
+    String googleID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +36,17 @@ public class AnimalList extends AppCompatActivity {
         setContentView(R.layout.activity_animal_list);
 
         listView = findViewById(R.id.listView);
-        getJSON("https://cgi.sice.indiana.edu/~team53/animals_list.php?sbid=1");
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .requestId()
+                .build();
+
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(AnimalList.this);
+        if (acct != null) {
+            googleID = acct.getId();
+        }
+        getJSON("https://cgi.sice.indiana.edu/~team53/animals_list.php?gid="+googleID);
     }
 
     private void getJSON(final String urlWebService) {
@@ -48,6 +63,7 @@ public class AnimalList extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),s,Toast.LENGTH_SHORT).show();
                 try {
                     loadIntoListView(s);
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

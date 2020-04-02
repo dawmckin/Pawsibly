@@ -23,7 +23,7 @@
         android:id="@+id/view_pets_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="80dp"
         android:text="View Pets"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
@@ -55,50 +55,59 @@
 
     <ImageView
         android:id="@+id/user_pic_iv"
-        android:layout_width="174dp"
-        android:layout_height="331dp"
-        android:layout_marginTop="56dp"
+        android:layout_width="150dp"
+        android:layout_height="325dp"
+        android:layout_marginTop="80dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/add_profile_picture" />
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="309dp"
-        android:layout_height="166dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="235dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="80dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/pawsibly_logo" />
+        app:srcCompat="@drawable/new_title" />
 
+    <ImageView
+        android:id="@+id/edit_profile_iv"
+        android:layout_width="265dp"
+        android:layout_height="136dp"
+        android:layout_marginTop="300dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/rectangle_122" />
 
     <Button
         android:id="@+id/edit_sb_profile_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="335dp"
+        android:layout_height="30dp"
         android:background="@drawable/edit_profile"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user_pic_iv" />
+        app:layout_constraintBottom_toBottomOf="@+id/edit_profile_iv"
+        app:layout_constraintEnd_toEndOf="@+id/edit_profile_iv"
+        app:layout_constraintStart_toStartOf="@+id/edit_profile_iv"
+        app:layout_constraintTop_toTopOf="@+id/edit_profile_iv"
+        />
 
     <ImageView
         android:id="@+id/view_pets_btn"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:layout_marginBottom="30dp"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginBottom="112dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ellipse_69" />
 
     <Button
         android:id="@+id/pet_list_icon"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="@+id/view_pets_btn"
         app:layout_constraintEnd_toEndOf="@+id/view_pets_btn"
         app:layout_constraintStart_toStartOf="@+id/view_pets_btn"
@@ -108,11 +117,10 @@
 
     <Button
         android:id="@+id/logout_btn"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginBottom="90dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="88dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:background="@drawable/logout_icon"
@@ -120,11 +128,10 @@
 
     <Button
         android:id="@+id/acct_type_btn"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="90dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="88dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:background="@drawable/add_pet_icon"

@@ -128,7 +128,6 @@ public class LoginActivity extends AppCompatActivity {
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
                 googleID_SB = s;
-                /*Toast.makeText(getApplicationContext(),s,Toast.LENGTH_SHORT).show();*/
             }
         }
 
