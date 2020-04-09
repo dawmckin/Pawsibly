@@ -64,4 +64,9 @@ public class BreederProfileActivity extends AppCompatActivity {
         Intent intent = new Intent(BreederProfileActivity.this, AnimalList.class);
         startActivity(intent);
     }
+
+    public void onMessaging(View view) {
+        Intent intent = new Intent(BreederProfileActivity.this, Messaging.class);
+        startActivity(intent);
+    }
 }

@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     SignInButton signinbtn;
     GoogleSignInClient mGoogleSignInClient;
     int RC_SIGN_IN = 1;
-    String personEmail, personId, googleID_RU, googleID_SB;
+    String personEmail, personId, googleID_RU, googleID_SB, googleID_ADMIN;
 
 
     @Override
@@ -60,6 +60,7 @@ public class LoginActivity extends AppCompatActivity {
 
         getJSONUsers("https://cgi.sice.indiana.edu/~team53/login.php?gid="+ personId);
         getJSONShelterBreeder("https://cgi.sice.indiana.edu/~team53/login_sb.php?gid="+ personId);
+        getJSONAdmin("https://cgi.sice.indiana.edu/~team53/login_admin.php?gid="+ personId);
     }
 
     private void getJSONUsers(final String urlWebServices) {
@@ -135,6 +136,43 @@ public class LoginActivity extends AppCompatActivity {
         getJSON.execute();
     }
 
+    private void getJSONAdmin(final String urlWebServices) {
+
+        class GetJSON extends AsyncTask<Void, Void, String> {
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+            }
+
+            @Override
+            protected String doInBackground(Void... voids) {
+                try {
+                    URL url = new URL(urlWebServices);
+                    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                    StringBuilder sb = new StringBuilder();
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                    String json;
+                    while ((json = bufferedReader.readLine()) != null) {
+                        sb.append(json + "\n");
+                    }
+                    return sb.toString().trim();
+                } catch (Exception e) {
+                    return e.toString().trim();
+                }
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                googleID_ADMIN = s;
+                /*Toast.makeText(getApplicationContext(),s,Toast.LENGTH_SHORT).show();*/
+            }
+        }
+
+        GetJSON getJSON = new GetJSON();
+        getJSON.execute();
+    }
+
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
@@ -159,6 +197,9 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             } else if (googleID_SB.contains(personId)) {
                 Intent intent = new Intent(LoginActivity.this, BreederProfileActivity.class);
+                startActivity(intent);
+            } else if (googleID_ADMIN.contains(personId)) {
+                Intent intent = new Intent(LoginActivity.this, AdminHomeActivity.class);
                 startActivity(intent);
             } else {
                 acctRegister();

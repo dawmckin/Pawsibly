@@ -1,78 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".AdminHomeActivity"
-    android:background="@drawable/background_home">
+    android:background="@drawable/background_home"
+    android:gravity="center_horizontal">
 
 
     <ImageView
         android:id="@+id/paws_iv"
         android:layout_width="40dp"
         android:layout_height="40dp"
-
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp"
         app:srcCompat="@drawable/home_icon_on" />
 
     <Button
         android:id="@+id/view_verification_requests_btn"
         android:layout_width="335dp"
         android:layout_height="54dp"
+        android:layout_marginTop="100dp"
         android:background="@drawable/view_verification_requests"
-        android:onClick="ViewVerificationRequests"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="132dp" />
+        android:onClick="ViewVerificationRequests" />
 
     <Button
         android:id="@+id/view_reported_users_btn"
         android:layout_width="335dp"
         android:layout_height="54dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
         android:background="@drawable/reported_users"
-        android:onClick="ViewReportedUsers"
-        app:layout_constraintBottom_toTopOf="@+id/view_reported_sb_btn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_verification_requests_btn" />
+        android:onClick="ViewReportedUsers" />
 
     <Button
         android:id="@+id/view_reported_sb_btn"
         android:layout_width="335dp"
         android:layout_height="54dp"
         android:background="@drawable/reported_sb"
-        android:onClick="ViewReportedSB"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_verification_requests_btn" />
+        android:onClick="ViewReportedSB"/>
 
-    <Button
-        android:id="@+id/logout_btn"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:background="@drawable/logout_icon"
-        android:onClick="onLogout"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_reported_sb_btn" />
-
-    <TextView
-        android:id="@+id/logout_tv"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Logout"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/logout_btn"
-        app:layout_constraintHorizontal_bias="0.516"
-        app:layout_constraintStart_toStartOf="@+id/logout_btn"
-        app:layout_constraintTop_toBottomOf="@+id/logout_btn" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:orientation="vertical"
+        android:layout_marginTop="75dp"
+        android:layout_gravity="center_horizontal">
+        <Button
+            android:id="@+id/logout_btn"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:background="@drawable/logout_icon"
+            android:onClick="onLogout" />
+
+        <TextView
+            android:id="@+id/logout_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_marginTop="8dp"
+            android:text="Logout"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+    </LinearLayout>
+</LinearLayout>
