@@ -32,6 +32,8 @@
         <activity android:name=".HomeActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".AdminHomeActivity"/>
+        <activity android:name=".SelectedVerificationRequest" />
+        <activity android:name=".VerificationRequestListActivity"/>
     </application>
 
 </manifest>

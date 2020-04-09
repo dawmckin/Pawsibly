@@ -17,17 +17,17 @@ public class AdminHomeActivity extends AppCompatActivity {
         setContentView(R.layout.admin_homepage);
     }
     public void ViewVerificationRequests(View view) {
-        Intent intent = new Intent(AdminHomeActivity.this, ViewVerificationRequestActivity.class);
+        Intent intent = new Intent(AdminHomeActivity.this, VerificationRequestListActivity.class);
         startActivity(intent);
     }
-    public void ViewReportedUsers(View view) {
+    /**public void ViewReportedUsers(View view) {
         Intent intent = new Intent(AdminHomeActivity.this, ViewReportedUsersActivity.class);
         startActivity(intent);
     }
     public void ViewReportedSB(View view) {
         Intent intent = new Intent(AdminHomeActivity.this, ViewReportedSBActivity.class);
         startActivity(intent);
-    }
+    }**/
     public void onLogout(View view) {
         Intent intent = new Intent(AdminHomeActivity.this, LoginActivity.class);
         startActivity(intent);
