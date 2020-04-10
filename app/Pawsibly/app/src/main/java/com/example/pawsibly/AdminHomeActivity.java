@@ -16,7 +16,7 @@ public class AdminHomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_homepage);
     }
-    /**
+
     public void ViewVerificationRequests(View view) {
         Intent intent = new Intent(AdminHomeActivity.this, VerificationRequestListActivity.class);
         startActivity(intent);
@@ -28,7 +28,7 @@ public class AdminHomeActivity extends AppCompatActivity {
     public void ViewReportedSB(View view) {
         Intent intent = new Intent(AdminHomeActivity.this, ReportedSBList.class);
         startActivity(intent);
-    }**/
+    }
     public void onLogout(View view) {
         Intent intent = new Intent(AdminHomeActivity.this, LoginActivity.class);
         startActivity(intent);
