@@ -20,11 +20,11 @@ public class AdminHomeActivity extends AppCompatActivity {
         Intent intent = new Intent(AdminHomeActivity.this, VerificationRequestListActivity.class);
         startActivity(intent);
     }
-    /**public void ViewReportedUsers(View view) {
-        Intent intent = new Intent(AdminHomeActivity.this, ViewReportedUsersActivity.class);
+    public void ViewReportedUsers(View view) {
+        Intent intent = new Intent(AdminHomeActivity.this, ReportedUserListActivity.class);
         startActivity(intent);
     }
-    public void ViewReportedSB(View view) {
+    /**public void ViewReportedSB(View view) {
         Intent intent = new Intent(AdminHomeActivity.this, ViewReportedSBActivity.class);
         startActivity(intent);
     }**/

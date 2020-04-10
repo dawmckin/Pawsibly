@@ -14,7 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Messaging"></activity>
+        <activity android:name=".SelectedUserReport"></activity>
+        <activity android:name=".ReportedUserListActivity" />
+        <activity android:name=".Messaging" />
         <activity android:name=".SelectedAnimal" />
         <activity android:name=".AnimalList" />
         <activity android:name=".RegisterSBActivity" />
@@ -31,9 +33,9 @@
         <activity android:name=".UserProfileActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".AdminHomeActivity"/>
+        <activity android:name=".AdminHomeActivity" />
         <activity android:name=".SelectedVerificationRequest" />
-        <activity android:name=".VerificationRequestListActivity"/>
+        <activity android:name=".VerificationRequestListActivity" />
     </application>
 
 </manifest>
