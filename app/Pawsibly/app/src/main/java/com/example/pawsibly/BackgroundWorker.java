@@ -30,6 +30,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
         String register_url = "http://cgi.sice.indiana.edu/~team53/register.php";
         String register_sb_url = "http://cgi.sice.indiana.edu/~team53/register_sb.php";
         String edit_user_info_url = "http://cgi.sice.indiana.edu/~team53/edit_user_info.php";
+        String set_filters_url = "http://cgi.sice.indiana.edu/~team53/set_filters.php";
         if (type.equals("register")) {
             try {
                 String lname = params[1];
@@ -141,8 +142,43 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
-        return null;
+        } else if (type.equals("set_filters")) {
+            try {
+                String filter_age = params[1];
+                String filter_radius = params[2];
+                String filter_type = params[3];
+                String filter_size = params[4];
+                String filter_gender = params[5];
+                String gid = params[6];
+                URL url = new URL(set_filters_url);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                String post_data = URLEncoder.encode("age", "UTF-8") + "=" + URLEncoder.encode(filter_age, "UTF-8") + "&" + URLEncoder.encode("radius", "UTF-8") + "=" + URLEncoder.encode(filter_radius, "UTF-8") + "&" + URLEncoder.encode("type", "UTF-8") + "=" + URLEncoder.encode(filter_type, "UTF-8") + "&" + URLEncoder.encode("size", "UTF-8") + "=" + URLEncoder.encode(filter_size, "UTF-8") + "&" + URLEncoder.encode("gender", "UTF-8") + "=" + URLEncoder.encode(filter_gender, "UTF-8") + "&" + URLEncoder.encode("gid", "UTF-8") + "=" + URLEncoder.encode(gid, "UTF-8");
+                bufferedWriter.write(post_data);
+                bufferedWriter.flush();
+                bufferedWriter.close();
+                outputStream.close();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "iso-8859-1"));
+                String result = "";
+                String line = "";
+                while ((line = bufferedReader.readLine()) != null) {
+                    result += line;
+                }
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+                return result;
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } return null;
     }
 
     @Override
