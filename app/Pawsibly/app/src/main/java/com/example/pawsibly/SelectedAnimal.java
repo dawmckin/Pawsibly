@@ -91,17 +91,27 @@ public class SelectedAnimal extends AppCompatActivity {
     private void loadIntoListView(String json) throws JSONException {
         JSONArray jsonArray = new JSONArray(json);
         final String[] names = new String[jsonArray.length()];
+        final String[] genders = new String[jsonArray.length()];
+        final String[] phones = new String[jsonArray.length()];
+        final String[] bios = new String[jsonArray.length()];
+
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject object = jsonArray.getJSONObject(i);
             names[i] = object.getString("fullname");
+            genders[i] = object.getString("gender");
+            phones[i] = object.getString("phone");
+            bios[i] = object.getString("bio");
         }
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, names);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(SelectedAnimal.this, SelectedUserReport.class);
+                Intent intent = new Intent(SelectedAnimal.this, SelectedAnimalUser.class);
                 intent.putExtra("Fullname", names[position]);
+                intent.putExtra("Gender", genders[position]);
+                intent.putExtra("Phone", phones[position]);
+                intent.putExtra("Bio", bios[position]);
                 startActivity(intent);
             }
         });
