@@ -24,10 +24,10 @@ public class AdminHomeActivity extends AppCompatActivity {
         Intent intent = new Intent(AdminHomeActivity.this, ReportedUserListActivity.class);
         startActivity(intent);
     }
-    /**public void ViewReportedSB(View view) {
-        Intent intent = new Intent(AdminHomeActivity.this, ViewReportedSBActivity.class);
+    public void ViewReportedSB(View view) {
+        Intent intent = new Intent(AdminHomeActivity.this, ReportedSBList.class);
         startActivity(intent);
-    }**/
+    }
     public void onLogout(View view) {
         Intent intent = new Intent(AdminHomeActivity.this, LoginActivity.class);
         startActivity(intent);

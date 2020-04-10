@@ -14,7 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".SelectedUserReport"></activity>
+        <activity android:name=".SelectedSBReport"></activity>
+        <activity android:name=".ReportedSBList" />
+        <activity android:name=".SelectedUserReport" />
         <activity android:name=".ReportedUserListActivity" />
         <activity android:name=".Messaging" />
         <activity android:name=".SelectedAnimal" />
