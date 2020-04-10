@@ -24,6 +24,7 @@ public class UserProfileActivity extends AppCompatActivity {
     final Context context = this;
     String personId, gender;
     EditText lnameInput, fnameInput, phoneInput, bioInput;
+    RadioButton radioSelectedButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,23 +41,36 @@ public class UserProfileActivity extends AppCompatActivity {
             personId = acct.getId();
         }
     }
+
+
     public void onEditUserProfile(final View view) {
         LayoutInflater li = LayoutInflater.from(context);
-        View edit_profile = li.inflate(R.layout.edit_user_profile_prompts, null);
+        final View edit_profile = li.inflate(R.layout.edit_user_profile_prompts, null);
 
         AlertDialog.Builder alert = new AlertDialog.Builder(context);
         alert.setView(edit_profile);
         alert.setTitle("Edit Profile");
 
-        lnameInput = edit_profile.findViewById(R.id.edtLastName_et);
-        fnameInput = edit_profile.findViewById(R.id.edtLastName_et);
-        phoneInput = edit_profile.findViewById(R.id.edtPhone_et);
-        bioInput = edit_profile.findViewById(R.id.edtBio_et);
-
         alert.setPositiveButton("Submit", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+                final RadioGroup group = edit_profile.findViewById(R.id.radio_edtGender);
+                int selectedId = group.getCheckedRadioButtonId();
+                radioSelectedButton = (RadioButton) group.findViewById(selectedId);
+                switch (selectedId) {
+                    case R.id.radio_edtMale:
+                        gender="M";
+                        break;
+                    case R.id.radio_edtFemale:
+                        gender="F";
+                        break;
+                }
+                lnameInput = edit_profile.findViewById(R.id.edtLastName_et);
+                fnameInput = edit_profile.findViewById(R.id.edtFirstName_et);
+                phoneInput = edit_profile.findViewById(R.id.edtPhone_et);
+                bioInput = edit_profile.findViewById(R.id.edtBio_et);
+
+                onEditUserProfilePos(edit_profile);
             }
         });
         alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -68,24 +82,6 @@ public class UserProfileActivity extends AppCompatActivity {
         alert.create().show();
     }
 
-    public void onRadioButtonClicked(View view) {
-        boolean checked = ((RadioButton) view).isChecked();
-
-        // Check which radio button was clicked
-        switch(view.getId()) {
-            case R.id.radio_edtMale:
-                if (checked) {
-                    gender = "M";
-                }
-                break;
-            case R.id.radio_edtFemale:
-                if (checked) {
-                    gender = "F";
-                }
-                break;
-        }
-    }
-
     public void onEditUserProfilePos(View view) {
         String str_lname = lnameInput.getText().toString();
         String str_fname = fnameInput.getText().toString();
@@ -94,6 +90,7 @@ public class UserProfileActivity extends AppCompatActivity {
         String str_bio = bioInput.getText().toString();
         String str_gid = personId;
         String type = "edit_profile";
+        Toast.makeText(context,str_gid,Toast.LENGTH_SHORT).show();
         BackgroundWorker backgroundWorker = new BackgroundWorker(this);
         backgroundWorker.execute(type, str_lname, str_fname, str_gender, str_phone, str_bio, str_gid);
     }

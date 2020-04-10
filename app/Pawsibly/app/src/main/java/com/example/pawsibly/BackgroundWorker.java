@@ -120,7 +120,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
                 httpURLConnection.setDoInput(true);
                 OutputStream outputStream = httpURLConnection.getOutputStream();
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
-                String post_data = URLEncoder.encode("lastname","UTF-8")+"="+URLEncoder.encode(lname,"UTF-8")+"&"+URLEncoder.encode("firstname","UTF-8")+"="+URLEncoder.encode(fname,"UTF-8")+"&"+URLEncoder.encode("gender","UTF-8")+"="+URLEncoder.encode(gender,"UTF-8")+"&"+URLEncoder.encode("phone","UTF-8")+"="+URLEncoder.encode(phone,"UTF-8")+"&"+URLEncoder.encode("bio","UTF-8")+"="+URLEncoder.encode(bio,"UTF-8")+"&"+URLEncoder.encode("gid","UTF-8")+"="+URLEncoder.encode(gid,"UTF-8");
+                String post_data = URLEncoder.encode("lastname","UTF-8")+"="+URLEncoder.encode("'"+lname+"'","UTF-8")+"&"+URLEncoder.encode("firstname","UTF-8")+"="+URLEncoder.encode("'"+fname+"'","UTF-8")+"&"+URLEncoder.encode("gender","UTF-8")+"="+URLEncoder.encode("'"+gender+"'","UTF-8")+"&"+URLEncoder.encode("phone","UTF-8")+"="+URLEncoder.encode("'"+phone+"'","UTF-8")+"&"+URLEncoder.encode("bio","UTF-8")+"="+URLEncoder.encode("'"+bio+"'","UTF-8")+"&"+URLEncoder.encode("gid","UTF-8")+"="+URLEncoder.encode(gid,"UTF-8");
                 bufferedWriter.write(post_data);
                 bufferedWriter.flush();
                 bufferedWriter.close();
