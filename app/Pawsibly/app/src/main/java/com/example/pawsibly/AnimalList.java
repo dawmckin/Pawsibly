@@ -93,9 +93,11 @@ public class AnimalList extends AppCompatActivity {
     private void loadIntoListView(String json) throws JSONException {
         JSONArray jsonArray = new JSONArray(json);
         final String[] pets = new String[jsonArray.length()];
+        final String[] pids = new String[jsonArray.length()];
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject object = jsonArray.getJSONObject(i);
             pets[i] =object.getString("name");
+            pids[i] =object.getString("pid");
         }
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, pets);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -103,6 +105,7 @@ public class AnimalList extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(AnimalList.this, SelectedAnimal.class);
                 intent.putExtra("PetName", pets[position]);
+                intent.putExtra("PetID", pids[position]);
                 startActivity(intent);
             }
         });
