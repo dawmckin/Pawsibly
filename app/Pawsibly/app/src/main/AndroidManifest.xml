@@ -14,6 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="@string/map_key"></meta-data>
+
         <activity android:name=".SelectedAnimalUser"></activity>
         <activity android:name=".SelectedSBReport" />
         <activity android:name=".ReportedSBList" />
