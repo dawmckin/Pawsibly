@@ -23,6 +23,7 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 
+
 public class LocationActivity extends AppCompatActivity {
 
     private static final String TAG = LocationActivity.class.getSimpleName();
@@ -121,4 +122,5 @@ public class LocationActivity extends AppCompatActivity {
         super.onDestroy();
         stopLocationRequests();
     }
+
 }
