@@ -39,7 +39,7 @@ public class SelectedUserReport extends AppCompatActivity {
     }
     public void TerminateAccount(View view) {
         String str_gid = reported_gid;
-        String type = "terminate";
+        String type = "SBterminate";
         BackgroundWorker backgroundWorker = new BackgroundWorker(this);
         backgroundWorker.execute(type, str_gid);
     }

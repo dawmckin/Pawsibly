@@ -32,6 +32,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
         String edit_user_info_url = "http://cgi.sice.indiana.edu/~team53/edit_user_info.php";
         String set_filters_url = "http://cgi.sice.indiana.edu/~team53/set_filters.php";
         String terminate_user_url = "http://cgi.sice.indiana.edu/~team53/terminate_user.php";
+        String terminate_sb_url = "http://cgi.sice.indiana.edu/~team53/terminate_sb.php";
         if (type.equals("register")) {
             try {
                 String lname = params[1];
@@ -210,7 +211,40 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        } return null;
+        }
+        else if (type.equals("SBterminate")) {
+            try {
+                String gid = params[1];
+                URL url = new URL(terminate_sb_url);
+                HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                String post_data = URLEncoder.encode("gid","UTF-8")+"="+URLEncoder.encode(gid,"UTF-8");
+                bufferedWriter.write(post_data);
+                bufferedWriter.flush();
+                bufferedWriter.close();
+                outputStream.close();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"iso-8859-1"));
+                String result="";
+                String line="";
+                while((line = bufferedReader.readLine())!= null) {
+                    result += line;
+                }
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+                return result;
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
     }
 
     @Override

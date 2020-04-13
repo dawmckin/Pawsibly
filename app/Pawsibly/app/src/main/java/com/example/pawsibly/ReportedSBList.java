@@ -82,6 +82,7 @@ public class ReportedSBList extends AppCompatActivity {
 
     private void loadIntoListView(String json) throws JSONException {
         JSONArray jsonArray = new JSONArray(json);
+        final String[] gids = new String[jsonArray.length()];
         final String[] names = new String[jsonArray.length()];
         final String[] phones = new String[jsonArray.length()];
         final String[] dates = new String[jsonArray.length()];
@@ -91,6 +92,7 @@ public class ReportedSBList extends AppCompatActivity {
 
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject object = jsonArray.getJSONObject(i);
+            gids[i] = object.getString("gid");
             names[i] = object.getString("name");
             phones[i] = object.getString("phone");
             dates[i] = object.getString("reported_date");
@@ -102,6 +104,7 @@ public class ReportedSBList extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(ReportedSBList.this, SelectedSBReport.class);
+                intent.putExtra("Report_GID", gids[position]);
                 intent.putExtra("Report_Name", names[position]);
                 intent.putExtra("Report_Phone", phones[position]);
                 intent.putExtra("Report_Date", dates[position]);
