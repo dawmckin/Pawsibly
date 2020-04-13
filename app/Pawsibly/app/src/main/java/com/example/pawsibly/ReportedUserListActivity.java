@@ -82,8 +82,8 @@ public class ReportedUserListActivity extends AppCompatActivity {
 
     private void loadIntoListView(String json) throws JSONException {
         JSONArray jsonArray = new JSONArray(json);
-        final String[] fnames = new String[jsonArray.length()];
-        final String[] lnames = new String[jsonArray.length()];
+        final String[] gids = new String[jsonArray.length()];
+        final String[] names = new String[jsonArray.length()];
         final String[] dates = new String[jsonArray.length()];
         final String[] reports = new String[jsonArray.length()];
 
@@ -91,19 +91,19 @@ public class ReportedUserListActivity extends AppCompatActivity {
 
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject object = jsonArray.getJSONObject(i);
-            fnames[i] = object.getString("firstname");
-            lnames[i] = object.getString("lastname");
+            gids[i] = object.getString("gid");
+            names[i] = object.getString("name");
             dates[i] = object.getString("reported_date");
             reports[i] = object.getString("reported_reason");
 
         }
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, fnames);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, names);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(ReportedUserListActivity.this, SelectedUserReport.class);
-                intent.putExtra("Report_FirstName", fnames[position]);
-                intent.putExtra("Report_LastName", lnames[position]);
+                intent.putExtra("Report_GID", gids[position]);
+                intent.putExtra("Report_Name", names[position]);
                 intent.putExtra("Report_Date", dates[position]);
                 intent.putExtra("Report_Reason", reports[position]);
 

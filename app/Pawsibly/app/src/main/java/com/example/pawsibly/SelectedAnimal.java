@@ -100,8 +100,7 @@ public class SelectedAnimal extends AppCompatActivity {
             names[i] = object.getString("fullname");
             genders[i] = object.getString("gender");
             phones[i] = object.getString("phone");
-            bios[i] = object.getString("bio");
-        }
+            bios[i] = object.getString("bio"); }
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, names);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

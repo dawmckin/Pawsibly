@@ -51,6 +51,28 @@
             android:orientation="horizontal">
 
         </LinearLayout>
+
     </LinearLayout>
+
+    <Button
+        android:id="@+id/delete_account_btn"
+        android:layout_width="250dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="350dp"
+        android:layout_marginLeft="80dp"
+        android:text="TERMINATE ACCOUNT"
+        android:background="@color/colorAccent"
+        android:onClick="TerminateAccount"/>
+
+    <Button
+        android:id="@+id/close_report_btn"
+        android:layout_width="250dp"
+        android:layout_height="54dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="480dp"
+        android:background="@color/colorPrimaryDark"
+        android:onClick="onCancel"
+        android:text="CLOSE REPORT" />
+
 
 </RelativeLayout>
