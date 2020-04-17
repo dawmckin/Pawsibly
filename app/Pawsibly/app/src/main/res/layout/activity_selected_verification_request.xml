@@ -73,5 +73,24 @@
 
         </LinearLayout>
     </LinearLayout>
+    <Button
+        android:id="@+id/verify_account_btn"
+        android:layout_width="250dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="350dp"
+        android:layout_marginLeft="80dp"
+        android:text="VERIFY ACCOUNT"
+        android:background="@color/colorPrimaryDark"
+        android:onClick="VerifySBAccount"/>
+
+    <Button
+        android:id="@+id/close_request_btn"
+        android:layout_width="250dp"
+        android:layout_height="54dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="480dp"
+        android:background="@color/colorAccent"
+        android:onClick="SBCancel"
+        android:text="CLOSE REQUEST" />
 
 </RelativeLayout>

@@ -27,6 +27,7 @@ import java.net.URL;
 
 public class VerificationRequestListActivity extends AppCompatActivity {
 
+    Toolbar toolbar;
     ListView listView;
 
     @Override
@@ -34,7 +35,9 @@ public class VerificationRequestListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.verification_request_list);
 
+        toolbar = findViewById(R.id.toolbar);
         listView = findViewById(R.id.listViewVerify);
+        toolbar.setTitle("Verification Requests");
 
         getJSON("https://cgi.sice.indiana.edu/~team53/verification_request.php");
     }
@@ -82,6 +85,7 @@ public class VerificationRequestListActivity extends AppCompatActivity {
 
     private void loadIntoListView(String json) throws JSONException {
         JSONArray jsonArray = new JSONArray(json);
+        final String[] gids = new String[jsonArray.length()];
         final String[] requests = new String[jsonArray.length()];
         final String[] emails = new String[jsonArray.length()];
         final String[] locations = new String[jsonArray.length()];
@@ -92,6 +96,7 @@ public class VerificationRequestListActivity extends AppCompatActivity {
 
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject object = jsonArray.getJSONObject(i);
+            gids[i] = object.getString("gid");
             requests[i] = object.getString("name");
             emails[i] = object.getString("email");
             locations[i] = object.getString("location");
@@ -104,6 +109,7 @@ public class VerificationRequestListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(VerificationRequestListActivity.this, SelectedVerificationRequest.class);
+                intent.putExtra("SB_GID", gids[position]);
                 intent.putExtra("SB_Name", requests[position]);
                 intent.putExtra("SB_Email", emails[position]);
                 intent.putExtra("SB_Location", locations[position]);
