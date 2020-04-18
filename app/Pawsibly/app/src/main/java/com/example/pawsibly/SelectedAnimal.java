@@ -104,9 +104,7 @@ public class SelectedAnimal extends AppCompatActivity {
             genders[i] = object.getString("gender");
             phones[i] = object.getString("phone");
             bios[i] = object.getString("bio"); }
-/**
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, names);
-**/
+
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, names) {
             @Override
             public View getView(int position, View convertView, ViewGroup parent){
