@@ -3,12 +3,15 @@ package com.example.pawsibly;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
@@ -101,8 +104,22 @@ public class SelectedAnimal extends AppCompatActivity {
             genders[i] = object.getString("gender");
             phones[i] = object.getString("phone");
             bios[i] = object.getString("bio"); }
-
+/**
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, names);
+**/
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, names) {
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent){
+                View view = super.getView(position, convertView, parent);
+
+                TextView tv = (TextView) view.findViewById(android.R.id.text1);
+
+                tv.setTextColor(Color.WHITE);
+
+                return view;
+            }
+        };
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
