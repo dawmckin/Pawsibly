@@ -34,6 +34,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
         String terminate_user_url = "http://cgi.sice.indiana.edu/~team53/terminate_user.php";
         String terminate_sb_url = "http://cgi.sice.indiana.edu/~team53/terminate_sb.php";
         String verify_sb_url = "http://cgi.sice.indiana.edu/~team53/verify_sb.php";
+        String add_animal_url = "http://cgi.sice.indiana.edu/~team53/add_animal.php";
         if (type.equals("register")) {
             try {
                 String lname = params[1];
@@ -125,6 +126,44 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
                 OutputStream outputStream = httpURLConnection.getOutputStream();
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
                 String post_data = URLEncoder.encode("lastname","UTF-8")+"="+URLEncoder.encode("'"+lname+"'","UTF-8")+"&"+URLEncoder.encode("firstname","UTF-8")+"="+URLEncoder.encode("'"+fname+"'","UTF-8")+"&"+URLEncoder.encode("gender","UTF-8")+"="+URLEncoder.encode("'"+gender+"'","UTF-8")+"&"+URLEncoder.encode("phone","UTF-8")+"="+URLEncoder.encode("'"+phone+"'","UTF-8")+"&"+URLEncoder.encode("bio","UTF-8")+"="+URLEncoder.encode("'"+bio+"'","UTF-8")+"&"+URLEncoder.encode("gid","UTF-8")+"="+URLEncoder.encode(gid,"UTF-8");
+                bufferedWriter.write(post_data);
+                bufferedWriter.flush();
+                bufferedWriter.close();
+                outputStream.close();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"iso-8859-1"));
+                String result="";
+                String line="";
+                while((line = bufferedReader.readLine())!= null) {
+                    result += line;
+                }
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+                return result;
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else if (type.equals("add_animal")) {
+            try {
+                String name = params[1];
+                String dob = params[2];
+                String gender = params[3];
+                String animal_type = params[4];
+                String size = params[5];
+                String bio = params[6];
+                String picture = params[7];
+                String sbid = params[8];
+                URL url = new URL(add_animal_url);
+                HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                String post_data = URLEncoder.encode("name","UTF-8")+"="+URLEncoder.encode(name,"UTF-8")+"&"+URLEncoder.encode("dob","UTF-8")+"="+URLEncoder.encode(dob,"UTF-8")+"&"+URLEncoder.encode("gender","UTF-8")+"="+URLEncoder.encode(gender,"UTF-8")+"&"+URLEncoder.encode("type","UTF-8")+"="+URLEncoder.encode(animal_type,"UTF-8")+"&"+URLEncoder.encode("size","UTF-8")+"="+URLEncoder.encode(size,"UTF-8")+"&"+URLEncoder.encode("'"+"bio"+"'","UTF-8")+"="+URLEncoder.encode(bio,"UTF-8")+"&"+URLEncoder.encode("picture","UTF-8")+"="+URLEncoder.encode(picture,"UTF-8")+"&"+URLEncoder.encode("sbid","UTF-8")+"="+URLEncoder.encode(sbid,"UTF-8");
                 bufferedWriter.write(post_data);
                 bufferedWriter.flush();
                 bufferedWriter.close();
