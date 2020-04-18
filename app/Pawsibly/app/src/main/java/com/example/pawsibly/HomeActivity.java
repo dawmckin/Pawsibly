@@ -8,16 +8,22 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.mindorks.placeholderview.SwipeDecor;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class HomeActivity extends AppCompatActivity {
 
     private SwipePlaceHolderView mSwipeView;
     private Context mContext;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +40,7 @@ public class HomeActivity extends AppCompatActivity {
                     .setRelativeScale(0.01f)
                     .setSwipeInMsgLayoutId(R.layout.swipe_in_msg_view)
                     .setSwipeOutMsgLayoutId(R.layout.swipe_out_msg_view));
+
 
         for (Profile profile : Pet_Profile_Utils.loadProfiles(this.getApplicationContext())) {
             mSwipeView.addView(new Card(mContext, profile, mSwipeView));
@@ -52,6 +59,7 @@ public class HomeActivity extends AppCompatActivity {
                 mSwipeView.doSwipe(true);
             }
         });
+
     }
 
     public void showAlertDialog(View view) {
@@ -68,6 +76,11 @@ public class HomeActivity extends AppCompatActivity {
 
     public void onUserAcct(View view) {
         Intent intent = new Intent(HomeActivity.this, UserProfileActivity.class);
+        startActivity(intent);
+    }
+
+    public void onMessage(View view) {
+        Intent intent = new Intent(HomeActivity.this, Messaging.class);
         startActivity(intent);
     }
 }

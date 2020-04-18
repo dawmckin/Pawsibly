@@ -36,7 +36,8 @@
             android:id="@+id/message_icon_iv"
             android:layout_width="40dp"
             android:layout_height="30dp"
-            android:background="@drawable/message_icon_off" />
+            android:background="@drawable/message_icon_off"
+            android:onClick="onMessage"/>
     </LinearLayout>
 
     <LinearLayout
