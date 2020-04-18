@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SelectedAnimal">
+    tools:context=".SelectedAnimal"
+    android:background="@drawable/background_home">
 
     <Toolbar
         android:id="@+id/toolbar"

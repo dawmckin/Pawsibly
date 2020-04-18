@@ -3,31 +3,38 @@
     android:id="@+id/add_animal_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/background">
 
     <TextView
         android:id="@+id/addName_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name:"/>
+        android:layout_marginTop="10dp"
+        android:text="Name:"
+        android:textColor="@color/realWhite"/>
     <EditText
         android:id="@+id/addName_et"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textColor="@color/realWhite"/>
     <TextView
         android:id="@+id/addDob_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="DoB:"/>
+        android:text="DoB:"
+        android:textColor="@color/realWhite"/>
     <EditText
         android:id="@+id/addDob_et"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textColor="@color/realWhite"/>
     <TextView
         android:id="@+id/addGender_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Gender:"/>
+        android:text="Gender:"
+        android:textColor="@color/realWhite"/>
     <RadioGroup
         android:id="@+id/radio_addGender"
         android:layout_width="wrap_content"
@@ -40,18 +47,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Male"
-            />
+            android:theme="@style/MyRadioButton"/>
         <RadioButton
             android:id="@+id/radio_addFemale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Female" />
+            android:text="Female"
+            android:theme="@style/MyRadioButton"/>
     </RadioGroup>
     <TextView
         android:id="@+id/addType_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Type:"/>
+        android:text="Type:"
+        android:textColor="@color/realWhite"/>
     <RadioGroup
         android:id="@+id/radio_addType"
         android:layout_width="wrap_content"
@@ -64,24 +73,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dog"
-            />
+            android:theme="@style/MyRadioButton"/>
         <RadioButton
             android:id="@+id/radio_addCat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cat" />
+            android:text="Cat"
+            android:theme="@style/MyRadioButton"/>
     </RadioGroup>
     <TextView
         android:id="@+id/addSize_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Size:"/>
+        android:text="Size:"
+        android:textColor="@color/realWhite"/>
     <RadioGroup
         android:id="@+id/radio_addSize"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:theme="@style/MyRadioButton">
 
         <RadioButton
             android:id="@+id/radio_addSmall"
@@ -103,7 +115,8 @@
         android:id="@+id/addBio_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bio:"/>
+        android:text="Bio:"
+        android:textColor="@color/realWhite"/>
     <EditText
         android:id="@+id/addBio_et"
         android:layout_width="match_parent"
@@ -112,7 +125,8 @@
         android:id="@+id/addPicture_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Picture:"/>
+        android:text="Picture:"
+        android:textColor="@color/realWhite"/>
     <EditText
         android:id="@+id/addPicture_et"
         android:layout_width="match_parent"
