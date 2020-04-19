@@ -93,6 +93,7 @@
         app:layout_constraintEnd_toEndOf="@+id/edit_profile_iv"
         app:layout_constraintStart_toStartOf="@+id/edit_profile_iv"
         app:layout_constraintTop_toTopOf="@+id/edit_profile_iv"
+        android:onClick="onEditSBProfile"
         />
 
     <ImageView

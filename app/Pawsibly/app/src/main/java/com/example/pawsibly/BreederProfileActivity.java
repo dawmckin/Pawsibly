@@ -29,7 +29,7 @@ public class BreederProfileActivity extends AppCompatActivity {
 
     final Context context = this;
     String personId, breederID, add_gender, add_type, add_size;
-    EditText nameInput, bioInput, dobInput, pictureInput;
+    EditText nameInput, bioInput, dobInput, pictureInput, sbNameInput, sbManagerInput, sbLocationInput, sbWebsiteInput, sbPhoneInput, sbBioInput;
     RadioButton radioSelectedButtonGender, radioSelectedButtonType, radioSelectedButtonSize;
 
     @Override
@@ -49,6 +49,49 @@ public class BreederProfileActivity extends AppCompatActivity {
 
         getJSON("https://cgi.sice.indiana.edu/~team53/shelter_breeder.php?gid="+ personId);
 
+    }
+
+    public void onEditSBProfile(final View view) {
+        LayoutInflater li = LayoutInflater.from(context);
+        final View edit_profile = li.inflate(R.layout.edit_sb_profile_prompts, null);
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(context);
+        alert.setView(edit_profile);
+        alert.setTitle("Edit Profile");
+
+        alert.setPositiveButton("Submit", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                sbNameInput = edit_profile.findViewById(R.id.edtSBName_et);
+                sbManagerInput = edit_profile.findViewById(R.id.edtSBManager_et);
+                sbLocationInput = edit_profile.findViewById(R.id.edtSBLocation_et);
+                sbWebsiteInput = edit_profile.findViewById(R.id.edtSBWebsite_et);
+                sbPhoneInput = edit_profile.findViewById(R.id.edtSBPhone_et);
+                sbBioInput = edit_profile.findViewById(R.id.edtSBBio_et);
+
+                onEditSBProfilePos(edit_profile);
+            }
+        });
+        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        alert.create().show();
+    }
+
+    public void onEditSBProfilePos(View view) {
+        String str_name = sbNameInput.getText().toString();
+        String str_manager = sbManagerInput.getText().toString();
+        String str_location = sbLocationInput.getText().toString();
+        String str_website = sbWebsiteInput.getText().toString();
+        String str_phone = sbPhoneInput.getText().toString();
+        String str_bio = sbBioInput.getText().toString();
+        String str_gid = personId;
+        String type = "edit_sb_profile";
+        BackgroundWorker backgroundWorker = new BackgroundWorker(this);
+        backgroundWorker.execute(type, str_name, str_manager, str_location, str_website, str_phone, str_bio, str_gid);
     }
 
     private void getJSON(final String urlWebServices) {
