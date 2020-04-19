@@ -29,7 +29,7 @@ public class BreederProfileActivity extends AppCompatActivity {
 
     final Context context = this;
     String personId, breederID, add_gender, add_type, add_size;
-    EditText nameInput, bioInput, dobInput, pictureInput, sbNameInput, sbManagerInput, sbLocationInput, sbWebsiteInput, sbPhoneInput, sbBioInput;
+    EditText nameInput, bioInput, dobInput, pictureInput, sbNameInput, sbManagerInput, sbLocationInput, sbWebsiteInput, sbPhoneInput, sbBioInput, sbAddressInput;
     RadioButton radioSelectedButtonGender, radioSelectedButtonType, radioSelectedButtonSize;
 
     @Override
@@ -68,6 +68,7 @@ public class BreederProfileActivity extends AppCompatActivity {
                 sbWebsiteInput = edit_profile.findViewById(R.id.edtSBWebsite_et);
                 sbPhoneInput = edit_profile.findViewById(R.id.edtSBPhone_et);
                 sbBioInput = edit_profile.findViewById(R.id.edtSBBio_et);
+                sbAddressInput = edit_profile.findViewById(R.id.edtSBAddress_et);
 
                 onEditSBProfilePos(edit_profile);
             }
@@ -88,6 +89,7 @@ public class BreederProfileActivity extends AppCompatActivity {
         String str_website = sbWebsiteInput.getText().toString();
         String str_phone = sbPhoneInput.getText().toString();
         String str_bio = sbBioInput.getText().toString();
+        String str_address = sbAddressInput.getText().toString();
         String str_gid = personId;
         String type = "edit_sb_profile";
         BackgroundWorker backgroundWorker = new BackgroundWorker(this);
