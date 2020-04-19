@@ -3,31 +3,37 @@
     android:id="@+id/edit_user_profile_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/background">
 
     <TextView
         android:id="@+id/edtFirstName_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="First Name:"/>
+        android:text="First Name:"
+        android:textColor="@color/realWhite"/>
     <EditText
         android:id="@+id/edtFirstName_et"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textColor="@color/realWhite"/>
     <TextView
         android:id="@+id/edtLastName_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Last Name:"/>
+        android:text="Last Name:"
+        android:textColor="@color/realWhite"/>
     <EditText
         android:id="@+id/edtLastName_et"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textColor="@color/realWhite"/>
     <TextView
         android:id="@+id/edtGender_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Gender:"/>
+        android:text="Gender:"
+        android:textColor="@color/realWhite"/>
     <RadioGroup
         android:id="@+id/radio_edtGender"
         android:layout_width="wrap_content"
@@ -38,29 +44,35 @@
             android:id="@+id/radio_edtMale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Male" />
+            android:text="Male"
+            android:theme="@style/MyRadioButton"/>
         <RadioButton
             android:id="@+id/radio_edtFemale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Female" />
+            android:text="Female"
+            android:theme="@style/MyRadioButton"/>
     </RadioGroup>
     <TextView
         android:id="@+id/edtPhone_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Phone:"/>
+        android:text="Phone:"
+        android:textColor="@color/realWhite"/>
     <EditText
         android:id="@+id/edtPhone_et"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textColor="@color/realWhite"/>
     <TextView
         android:id="@+id/edtBio_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bio:"/>
+        android:text="Bio:"
+        android:textColor="@color/realWhite"/>
     <EditText
         android:id="@+id/edtBio_et"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textColor="@color/realWhite"/>
 </LinearLayout>
