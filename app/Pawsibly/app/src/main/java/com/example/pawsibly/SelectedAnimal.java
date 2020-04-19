@@ -134,4 +134,8 @@ public class SelectedAnimal extends AppCompatActivity {
         });
         listView.setAdapter(arrayAdapter);
     }
+    public void onProfile(View view) {
+        Intent intent = new Intent(SelectedAnimal.this, BreederProfileActivity.class);
+        startActivity(intent);
+    }
 }
