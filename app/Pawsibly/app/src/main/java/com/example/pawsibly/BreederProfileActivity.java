@@ -211,6 +211,13 @@ public class BreederProfileActivity extends AppCompatActivity {
         backgroundWorker.execute(type, str_name, str_dob, str_gender, str_type, str_size, str_bio, str_picture, str_sbid);
     }
 
+    public void onGetVerified(View view) {
+        String str_gid = personId;
+        String type = "get_verified";
+        BackgroundWorker backgroundWorker = new BackgroundWorker(this);
+        backgroundWorker.execute(type, str_gid);
+    }
+
     public void onLogout(View view) {
         Intent intent = new Intent(BreederProfileActivity.this, LoginActivity.class);
         startActivity(intent);

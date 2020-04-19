@@ -151,4 +151,16 @@
         app:layout_constraintStart_toStartOf="@+id/logout_btn"
         app:layout_constraintTop_toBottomOf="@+id/logout_btn" />
 
+    <Button
+        android:id="@+id/sb_verify_request"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Get Verified"
+        android:textSize="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="onGetVerified"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

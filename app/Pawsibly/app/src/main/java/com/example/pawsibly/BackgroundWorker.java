@@ -37,6 +37,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
         String verify_sb_url = "http://cgi.sice.indiana.edu/~team53/verify_sb.php";
         String add_animal_url = "http://cgi.sice.indiana.edu/~team53/add_animal.php";
         String submit_report_url = "http://cgi.sice.indiana.edu/~team53/submit_report.php";
+        String get_verified_url = "http://cgi.sice.indiana.edu/~team53/get_verified.php";
         if (type.equals("register")) {
             try {
                 String lname = params[1];
@@ -259,7 +260,38 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        } else if (type.equals("terminate")) {
+        } else if (type.equals("get_verified")) {
+            try {
+                String gid = params[1];
+                URL url = new URL(get_verified_url);
+                HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                String post_data = URLEncoder.encode("gid","UTF-8")+"="+URLEncoder.encode(gid,"UTF-8");
+                bufferedWriter.write(post_data);
+                bufferedWriter.flush();
+                bufferedWriter.close();
+                outputStream.close();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"iso-8859-1"));
+                String result="";
+                String line="";
+                while((line = bufferedReader.readLine())!= null) {
+                    result += line;
+                }
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+                return result;
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else if (type.equals("terminate")) {
             try {
                 String gid = params[1];
                 URL url = new URL(terminate_user_url);
@@ -290,8 +322,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
-        else if (type.equals("SBterminate")) {
+        } else if (type.equals("SBterminate")) {
             try {
                 String gid = params[1];
                 URL url = new URL(terminate_sb_url);
