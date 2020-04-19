@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SelectedUserReport"
+    tools:context=".SelectedAnimalUser"
+    android:gravity="center_horizontal"
     android:background="@drawable/background_home">
 
     <Toolbar
@@ -28,7 +29,7 @@
             android:id="@+id/name_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="55dp"
+            android:layout_marginTop="100dp"
             android:text="Name: "
             android:textColor="@color/realWhite"/>
 
@@ -36,7 +37,7 @@
             android:id="@+id/gender_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:text="gender: "
             android:textColor="@color/realWhite"/>
 
@@ -44,7 +45,7 @@
             android:id="@+id/phone_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:text="Phone # : "
             android:textColor="@color/realWhite"/>
 
@@ -52,7 +53,7 @@
             android:id="@+id/bio_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:text="Bio: "
             android:textColor="@color/realWhite"/>
 
@@ -68,10 +69,19 @@
             android:layout_width="250dp"
             android:layout_height="54dp"
             android:layout_marginLeft="80dp"
-            android:layout_marginTop="275dp"
+            android:layout_marginTop="175dp"
             android:background="@color/colorPrimaryDark"
-            android:onClick="onCancel"
+            android:onClick="onMessageUser"
             android:text="Message User" />
+        <Button
+            android:id="@+id/report_user_btn"
+            android:layout_width="250dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="80dp"
+            android:text="Report User"
+            android:background="@color/colorAccent"
+            android:onClick="ReportUser"/>
     </LinearLayout>
 
 </RelativeLayout>

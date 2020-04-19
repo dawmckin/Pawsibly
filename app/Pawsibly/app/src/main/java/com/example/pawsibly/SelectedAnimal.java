@@ -97,13 +97,15 @@ public class SelectedAnimal extends AppCompatActivity {
         final String[] genders = new String[jsonArray.length()];
         final String[] phones = new String[jsonArray.length()];
         final String[] bios = new String[jsonArray.length()];
+        final String[] gids = new String[jsonArray.length()];
 
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject object = jsonArray.getJSONObject(i);
             names[i] = object.getString("fullname");
             genders[i] = object.getString("gender");
             phones[i] = object.getString("phone");
-            bios[i] = object.getString("bio"); }
+            bios[i] = object.getString("bio");
+            gids[i] = object.getString("gid");}
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, names) {
             @Override
@@ -126,6 +128,7 @@ public class SelectedAnimal extends AppCompatActivity {
                 intent.putExtra("Gender", genders[position]);
                 intent.putExtra("Phone", phones[position]);
                 intent.putExtra("Bio", bios[position]);
+                intent.putExtra("gid",gids[position]);
                 startActivity(intent);
             }
         });

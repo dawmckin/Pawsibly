@@ -12,6 +12,7 @@ public class SelectedAnimalUser extends AppCompatActivity {
 
     Toolbar toolbar;
     TextView name, gender, phone, bio;
+    String gid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +33,20 @@ public class SelectedAnimalUser extends AppCompatActivity {
             gender.setText("Gender: " + bundle.getString("Gender"));
             phone.setText("Phone #: " + bundle.getString("Phone"));
             bio.setText("Bio: " + bundle.getString("Bio"));
+            gid = bundle.getString("gid");
 
 
         }
+    }
+
+    public void ReportUser(View view) {
+        Intent intent = new Intent(SelectedAnimalUser.this, report_page.class);
+        intent.putExtra("gid", gid);
+        startActivity(intent);
+    }
+
+    public void onMessageUser(View view) {
+        Intent intent = new Intent(SelectedAnimalUser.this, Messaging.class);
+        startActivity(intent);
     }
 }
