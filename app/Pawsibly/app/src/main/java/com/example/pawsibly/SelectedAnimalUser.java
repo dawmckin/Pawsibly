@@ -49,4 +49,9 @@ public class SelectedAnimalUser extends AppCompatActivity {
         Intent intent = new Intent(SelectedAnimalUser.this, Messaging.class);
         startActivity(intent);
     }
+
+    public void onProfile(View view) {
+        Intent intent = new Intent(SelectedAnimalUser.this, BreederProfileActivity.class);
+        startActivity(intent);
+    }
 }
