@@ -29,6 +29,19 @@
         android:foregroundGravity="center_horizontal"
         app:srcCompat="@drawable/home_icon_on" />
 
+    <ImageView
+        android:id="@+id/profile_icon_iv"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignBottom="@+id/toolbar"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="16dp"
+        android:onClick="onProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/user_icon_off" />
+
     <ListView
         android:id="@+id/listView"
         android:layout_width="match_parent"
