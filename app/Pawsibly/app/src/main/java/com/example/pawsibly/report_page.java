@@ -52,6 +52,9 @@ public class report_page extends AppCompatActivity {
         String type = "submit_report";
         BackgroundWorker backgroundWorker = new BackgroundWorker(this);
         backgroundWorker.execute(type, str_reportReason, str_gid);
+
+        Intent intent = new Intent(report_page.this, AnimalList.class);
+        startActivity(intent);
     }
 
 }
