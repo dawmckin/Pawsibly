@@ -97,12 +97,16 @@ public class AnimalList extends AppCompatActivity {
         JSONArray jsonArray = new JSONArray(json);
         final String[] pets = new String[jsonArray.length()];
         final String[] pids = new String[jsonArray.length()];
+        final String[] types = new String[jsonArray.length()];
+        final String[] tags = new String[jsonArray.length()];
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject object = jsonArray.getJSONObject(i);
             pets[i] =object.getString("name");
             pids[i] =object.getString("pid");
+            types[i] =object.getString("type");
+            tags[i] = pets[i] + " -- " + types[i] + "  PID: " + pids[i];
         }
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, pets) {
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, tags) {
             @Override
             public View getView(int position, View convertView, ViewGroup parent){
                 View view = super.getView(position, convertView, parent);
