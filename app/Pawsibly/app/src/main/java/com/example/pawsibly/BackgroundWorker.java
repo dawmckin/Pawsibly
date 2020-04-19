@@ -34,6 +34,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
         String terminate_user_url = "http://cgi.sice.indiana.edu/~team53/terminate_user.php";
         String terminate_sb_url = "http://cgi.sice.indiana.edu/~team53/terminate_sb.php";
         String verify_sb_url = "http://cgi.sice.indiana.edu/~team53/verify_sb.php";
+        String submit_report_url = "http://cgi.sice.indiana.edu/~team53/submit_report.php";
         if (type.equals("register")) {
             try {
                 String lname = params[1];
@@ -276,6 +277,38 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        } else if (type.equals("submit_report")) {
+            try {
+                String reportReason = params[1];
+                String gid = params[2];
+                URL url = new URL(submit_report_url);
+                HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                String post_data = URLEncoder.encode("reported_reason","UTF-8")+"="+URLEncoder.encode("'"+ reportReason +"'","UTF-8") + "&" + URLEncoder.encode("gid", "UTF-8") + "=" + URLEncoder.encode(gid, "UTF-8");
+                bufferedWriter.write(post_data);
+                bufferedWriter.flush();
+                bufferedWriter.close();
+                outputStream.close();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"iso-8859-1"));
+                String result="";
+                String line="";
+                while((line = bufferedReader.readLine())!= null) {
+                    result += line;
+                }
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+                return result;
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return null;
     }
@@ -284,7 +317,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
     @Override
     protected void onPreExecute() {
         alertDialog = new AlertDialog.Builder(context).create();
-        alertDialog.setTitle("Login Status");
+        alertDialog.setTitle("Status");
     }
 
     @Override
