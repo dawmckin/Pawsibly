@@ -92,7 +92,7 @@ public class LocationActivity extends AppCompatActivity {
                 }
             });
 
-            Intent intent = new Intent(LocationActivity.this, HomeActivity.class);
+            Intent intent = new Intent(LocationActivity.this, DistanceActivity.class);
             startActivity(intent);
 
         }else {

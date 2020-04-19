@@ -14,6 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="@string/map_key"/>
+
         <activity android:name=".report_page"></activity>
         <activity android:name=".SelectedAnimalUser" />
         <activity android:name=".SelectedSBReport" />
@@ -40,6 +44,7 @@
         <activity android:name=".AdminHomeActivity" />
         <activity android:name=".SelectedVerificationRequest" />
         <activity android:name=".VerificationRequestListActivity" />
+        <activity android:name=".DistanceActivity"/>
     </application>
 
 </manifest>
