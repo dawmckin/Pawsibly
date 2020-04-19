@@ -120,14 +120,15 @@
         android:layout_marginBottom="88dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/acct_icon" />
+        app:srcCompat="@drawable/acct_icon"
+        android:onClick="onDeleteAccount"/>
 
     <TextView
         android:id="@+id/acct_type_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Account Type"
+        android:text="Delete Account"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/acct_type_btn"
