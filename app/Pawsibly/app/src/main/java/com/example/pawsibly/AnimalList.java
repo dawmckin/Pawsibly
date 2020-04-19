@@ -129,4 +129,8 @@ public class AnimalList extends AppCompatActivity {
         });
         listView.setAdapter(arrayAdapter);
     }
+    public void onProfile(View view) {
+        Intent intent = new Intent(AnimalList.this, BreederProfileActivity.class);
+        startActivity(intent);
+    }
  }
