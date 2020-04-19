@@ -15,10 +15,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -129,6 +125,7 @@ public class SelectedAnimal extends AppCompatActivity {
                 intent.putExtra("Phone", phones[position]);
                 intent.putExtra("Bio", bios[position]);
                 intent.putExtra("gid",gids[position]);
+                intent.putExtra("pid", petID);
                 startActivity(intent);
             }
         });

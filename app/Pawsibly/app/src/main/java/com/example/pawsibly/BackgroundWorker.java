@@ -39,6 +39,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
         String submit_report_url = "http://cgi.sice.indiana.edu/~team53/submit_report.php";
         String get_verified_url = "http://cgi.sice.indiana.edu/~team53/get_verified.php";
         String delete_account_url = "http://cgi.sice.indiana.edu/~team53/delete_account.php";
+        String create_match_url = "http://cgi.sice.indiana.edu/~team53/create_match.php";
         if (type.equals("register")) {
             try {
                 String lname = params[1];
@@ -323,7 +324,39 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        } else if (type.equals("terminate")) {
+        } else if (type.equals("create_match")) {
+            try {
+                String pid = params[1];
+                String rid = params[2];
+                URL url = new URL(create_match_url);
+                HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                String post_data = URLEncoder.encode("pid","UTF-8")+"="+URLEncoder.encode(pid,"UTF-8") + "&" + URLEncoder.encode("rid", "UTF-8") + "=" + URLEncoder.encode(rid, "UTF-8");
+                bufferedWriter.write(post_data);
+                bufferedWriter.flush();
+                bufferedWriter.close();
+                outputStream.close();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"iso-8859-1"));
+                String result="";
+                String line="";
+                while((line = bufferedReader.readLine())!= null) {
+                    result += line;
+                }
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+                return result;
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else if (type.equals("terminate")) {
             try {
                 String gid = params[1];
                 URL url = new URL(terminate_user_url);
