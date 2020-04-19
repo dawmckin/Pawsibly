@@ -177,4 +177,33 @@ public class UserProfileActivity extends AppCompatActivity {
         Intent intent = new Intent(UserProfileActivity.this, HomeActivity.class);
         startActivity(intent);
     }
+
+    public void onDeleteAccount(final View view) {
+        LayoutInflater li = LayoutInflater.from(context);
+        final View delete_account = li.inflate(R.layout.delete_account_prompts, null);
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(context);
+        alert.setView(delete_account);
+        alert.setTitle("Alert!");
+        alert.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                onDeleteAccountPos(delete_account);
+            }
+        });
+        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        alert.create().show();
+    }
+
+    public void onDeleteAccountPos(View view) {
+        String str_gid = personId;
+        String type = "delete_account";
+        BackgroundWorker backgroundWorker = new BackgroundWorker(this);
+        backgroundWorker.execute(type, str_gid);
+    }
 }
