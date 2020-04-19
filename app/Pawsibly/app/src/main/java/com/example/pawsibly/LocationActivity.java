@@ -20,6 +20,7 @@ import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 
@@ -120,5 +121,22 @@ public class LocationActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         stopLocationRequests();
+    }
+
+    public static double getDistanceMeters(LatLng pt1, LatLng pt2){
+        double distance = 0d;
+        try{
+            double theta = pt1.longitude - pt2.longitude;
+            double dist = Math.sin(Math.toRadians(pt1.latitude)) * Math.sin(Math.toRadians(pt2.latitude))
+                    + Math.cos(Math.toRadians(pt1.latitude)) * Math.cos(Math.toRadians(pt2.latitude)) * Math.cos(Math.toRadians(theta));
+
+            dist = Math.acos(dist);
+            dist = Math.toDegrees(dist);
+            distance = dist * 60 * 1853.1596;
+        }
+        catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return distance;
     }
 }
