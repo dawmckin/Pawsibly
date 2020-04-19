@@ -13,7 +13,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 
 public class RegisterSBActivity extends AppCompatActivity {
 
-    EditText name, manager, dob, location, website, phone;
+    EditText name, manager, dob, location, website, phone, address;
     String personEmail, personId;
 
     @Override
@@ -27,6 +27,7 @@ public class RegisterSBActivity extends AppCompatActivity {
         location = (EditText) findViewById(R.id.location_et);
         website = (EditText) findViewById(R.id.website_et);
         phone = (EditText) findViewById(R.id.phone_et);
+        address = (EditText) findViewById(R.id.address_et);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -49,6 +50,7 @@ public class RegisterSBActivity extends AppCompatActivity {
         String str_website = website.getText().toString();
         String str_phone = phone.getText().toString();
         String str_gid = personId;
+        String str_address = address.getText().toString();
         String type = "register_sb";
         BackgroundWorker backgroundWorker = new BackgroundWorker(this);
         backgroundWorker.execute(type, str_name, str_manager, str_dob, str_email ,str_location, str_website, str_phone, str_gid);
