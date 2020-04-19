@@ -64,8 +64,8 @@ public class HomeActivity extends AppCompatActivity {
 
     public void showAlertDialog(View view) {
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
-            alert.setTitle("Pet Bio");
-            alert.setMessage("I a dog Bro.");
+            alert.setTitle("Bio");
+            alert.setMessage("I'm a dog Bro.");
             alert.setPositiveButton("Close", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
@@ -80,7 +80,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void onMessage(View view) {
-        Intent intent = new Intent(HomeActivity.this, Messaging.class);
+        Intent intent = new Intent(HomeActivity.this, UserMatchesList.class);
         startActivity(intent);
     }
 }

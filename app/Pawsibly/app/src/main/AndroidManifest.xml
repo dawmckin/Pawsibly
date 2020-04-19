@@ -14,7 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".report_page"></activity>
+        <activity android:name=".UserMatchesList"></activity>
+        <activity android:name=".SelectedAnimalMatches" />
+        <activity android:name=".SBMatchesList" />
+        <activity android:name=".report_page" />
         <activity android:name=".SelectedAnimalUser" />
         <activity android:name=".SelectedSBReport" />
         <activity android:name=".ReportedSBList" />

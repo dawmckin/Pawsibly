@@ -231,7 +231,7 @@ public class BreederProfileActivity extends AppCompatActivity {
     }
 
     public void onMessaging(View view) {
-        Intent intent = new Intent(BreederProfileActivity.this, Messaging.class);
+        Intent intent = new Intent(BreederProfileActivity.this, SBMatchesList.class);
         startActivity(intent);
     }
 }
