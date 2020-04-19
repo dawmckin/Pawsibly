@@ -5,4 +5,8 @@
     <color name="colorAccent">#D81B60</color>
     <color name="realWhite">#FFFFFF</color>
     <color name="black">#1F1E1D</color>
+    <color name="colorLIKE">#65D36E</color>
+    <color name="colorDISLIKE" />
+    <color name="colorNOPE">#DF2C63</color>
+    <color name="colorLIKE2">#4CCE57</color>
 </resources>
