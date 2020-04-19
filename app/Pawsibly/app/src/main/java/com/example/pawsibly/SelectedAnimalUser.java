@@ -76,7 +76,6 @@ public class SelectedAnimalUser extends AppCompatActivity {
                 super.onPostExecute(s);
                 String required_string = s.substring(s.indexOf("[") + 1, s.indexOf("]"));
                 rid = required_string;
-                /*Toast.makeText(getApplicationContext(),s,Toast.LENGTH_SHORT).show();*/
             }
         }
 

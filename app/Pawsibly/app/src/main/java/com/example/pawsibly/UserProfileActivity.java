@@ -163,7 +163,6 @@ public class UserProfileActivity extends AppCompatActivity {
         String str_gender = filter_gender;
         String str_gid = personId;
         String type = "set_filters";
-        Toast.makeText(context,str_gender,Toast.LENGTH_SHORT).show();
         BackgroundWorker backgroundWorker = new BackgroundWorker(this);
         backgroundWorker.execute(type, str_age, str_radius, str_type, str_size, str_gender, str_gid);
     }
@@ -205,5 +204,8 @@ public class UserProfileActivity extends AppCompatActivity {
         String type = "delete_account";
         BackgroundWorker backgroundWorker = new BackgroundWorker(this);
         backgroundWorker.execute(type, str_gid);
+
+        Intent intent = new Intent(UserProfileActivity.this, LoginActivity.class);
+        startActivity(intent);
     }
 }

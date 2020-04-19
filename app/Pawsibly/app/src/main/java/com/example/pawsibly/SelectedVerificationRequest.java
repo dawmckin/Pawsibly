@@ -97,7 +97,6 @@ public class SelectedVerificationRequest extends AppCompatActivity {
                 super.onPostExecute(s);
                 String required_string = s.substring(s.indexOf("[") + 1, s.indexOf("]"));
                 adminID = required_string;
-                Toast.makeText(getApplicationContext(),adminID,Toast.LENGTH_SHORT).show();
             }
         }
 

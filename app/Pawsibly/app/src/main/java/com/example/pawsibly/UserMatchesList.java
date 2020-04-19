@@ -32,7 +32,7 @@ public class UserMatchesList extends AppCompatActivity {
 
     Toolbar toolbar;
     ListView listView;
-    String userID, user_gid;
+    String user_gid, userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +54,9 @@ public class UserMatchesList extends AppCompatActivity {
             user_gid = acct.getId();
         }
 
-        getJSONUserID("https://cgi.sice.indiana.edu/~team53/reg_user_id.php?gid=" + user_gid);
-        getJSONList("https://cgi.sice.indiana.edu/~team53/user_matches_list.php?rid=" + userID);
+        getJSONUserID("https://cgi.sice.indiana.edu/~team53/reg_user_id.php?gid="+user_gid);
+
+        getJSONList("https://cgi.sice.indiana.edu/~team53/user_matches_list.php?rid=59");
     }
 
     private void getJSONUserID(final String urlWebServices) {
@@ -106,7 +107,6 @@ public class UserMatchesList extends AppCompatActivity {
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
-                Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
                 try {
                     loadIntoListView(s);
 
