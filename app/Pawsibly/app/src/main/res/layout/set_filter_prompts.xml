@@ -3,33 +3,39 @@
     android:id="@+id/set_filters_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/background">
 
     <TextView
         android:id="@+id/filterAge_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Age:"/>
+        android:text="Age (0-12):"
+        android:textColor="@color/realWhite"/>
     <SeekBar
         android:id="@+id/filterAge_sb"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:max="10"/>
+        android:max="10"
+        android:theme="@style/MyRadioButton"/>
     <TextView
         android:id="@+id/filterRadius_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Search Radius:"/>
+        android:text="Search Radius (0-50 mi):"
+        android:textColor="@color/realWhite"/>
     <SeekBar
         android:id="@+id/filterRadius_sb"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:max="50"/>
+        android:max="50"
+        android:theme="@style/MyRadioButton"/>
     <TextView
         android:id="@+id/filterType_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Type:"/>
+        android:text="Type:"
+        android:textColor="@color/realWhite"/>
     <RadioGroup
         android:id="@+id/radio_filterType"
         android:layout_width="wrap_content"
@@ -42,18 +48,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dog"
+            android:theme="@style/MyRadioButton"
             />
         <RadioButton
             android:id="@+id/radio_filterCat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cat" />
+            android:text="Cat"
+            android:theme="@style/MyRadioButton"/>
     </RadioGroup>
     <TextView
         android:id="@+id/filterSize_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Size:"/>
+        android:text="Size:"
+        android:textColor="@color/realWhite"/>
     <RadioGroup
         android:id="@+id/radio_filterSize"
         android:layout_width="wrap_content"
@@ -65,23 +74,27 @@
             android:id="@+id/radio_filterSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Small" />
+            android:text="Small"
+            android:theme="@style/MyRadioButton"/>
         <RadioButton
             android:id="@+id/radio_filterMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Medium" />
+            android:text="Medium"
+            android:theme="@style/MyRadioButton"/>
         <RadioButton
             android:id="@+id/radio_filterLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Large" />
+            android:text="Large"
+            android:theme="@style/MyRadioButton"/>
     </RadioGroup>
     <TextView
         android:id="@+id/filterGender_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Gender:"/>
+        android:text="Gender:"
+        android:textColor="@color/realWhite"/>
     <RadioGroup
         android:id="@+id/radio_filterGender"
         android:layout_width="wrap_content"
@@ -94,12 +107,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Male"
-            />
+            android:theme="@style/MyRadioButton" />
         <RadioButton
             android:id="@+id/radio_filterFemale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Female" />
+            android:text="Female"
+            android:theme="@style/MyRadioButton"/>
     </RadioGroup>
 </LinearLayout>
 
